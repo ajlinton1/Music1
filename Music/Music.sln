@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5E8EF914-20F2-42A1-B398-2C9A18319C71}"
+	ProjectSection(SolutionItems) = preProject
+		Music.vsmdi = Music.vsmdi
+		TestRunConfig1.testrunconfig = TestRunConfig1.testrunconfig
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaCatalog", "MediaCatalog\MediaCatalog.csproj", "{55F32DF2-0E4B-4E03-9A02-C511854C4199}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Music", "MusicDao\Music.csproj", "{5F1EAE01-A295-4E46-8A93-EE7B96A2F907}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicTest", "MusicTest\MusicTest.csproj", "{008E022C-43AE-4E78-BFC1-5564756219E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WMFSDKWrapper", "..\..\WMSDK\WMFSDK11\samples\managed\wrapper\WMFSDKWrapper.csproj", "{655F362E-A35B-4143-80F0-312A6B9C57E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetadataEdit", "..\..\WMSDK\WMFSDK11\samples\managed\metadataedit\MetadataEdit.csproj", "{12B1E9C2-149F-48E6-AD20-4D5A412B49E5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{55F32DF2-0E4B-4E03-9A02-C511854C4199}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55F32DF2-0E4B-4E03-9A02-C511854C4199}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55F32DF2-0E4B-4E03-9A02-C511854C4199}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55F32DF2-0E4B-4E03-9A02-C511854C4199}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F1EAE01-A295-4E46-8A93-EE7B96A2F907}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F1EAE01-A295-4E46-8A93-EE7B96A2F907}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F1EAE01-A295-4E46-8A93-EE7B96A2F907}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F1EAE01-A295-4E46-8A93-EE7B96A2F907}.Release|Any CPU.Build.0 = Release|Any CPU
+		{008E022C-43AE-4E78-BFC1-5564756219E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{008E022C-43AE-4E78-BFC1-5564756219E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{008E022C-43AE-4E78-BFC1-5564756219E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{008E022C-43AE-4E78-BFC1-5564756219E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{655F362E-A35B-4143-80F0-312A6B9C57E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{655F362E-A35B-4143-80F0-312A6B9C57E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{655F362E-A35B-4143-80F0-312A6B9C57E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{655F362E-A35B-4143-80F0-312A6B9C57E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12B1E9C2-149F-48E6-AD20-4D5A412B49E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12B1E9C2-149F-48E6-AD20-4D5A412B49E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12B1E9C2-149F-48E6-AD20-4D5A412B49E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12B1E9C2-149F-48E6-AD20-4D5A412B49E5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = Music.vsmdi
+	EndGlobalSection
+EndGlobal

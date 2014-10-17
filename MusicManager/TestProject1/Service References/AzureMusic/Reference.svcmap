@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2b2042e5-1aed-4207-b1a5-7083630c2c53" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://127.0.0.1:81/Service1.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServiceMusic1.wsdl" MetadataType="Wsdl" ID="09f42e69-7c9d-442c-b2f1-d4c74466dda1" SourceId="1" SourceUrl="http://127.0.0.1:81/Service1.svc?wsdl" />
+    <MetadataFile FileName="Service15.xsd" MetadataType="Schema" ID="4b6f768e-9819-47da-b97d-fd80ddbbb956" SourceId="1" SourceUrl="http://127.0.0.1:81/Service1.svc?xsd=xsd2" />
+    <MetadataFile FileName="Service151.xsd" MetadataType="Schema" ID="d6cebbc6-0378-41db-a541-ce1b5eff0c8b" SourceId="1" SourceUrl="http://127.0.0.1:81/Service1.svc?xsd=xsd3" />
+    <MetadataFile FileName="Service152.xsd" MetadataType="Schema" ID="8bc28951-e62e-4c9b-9bef-7f6ab48317d8" SourceId="1" SourceUrl="http://127.0.0.1:81/Service1.svc?xsd=xsd0" />
+    <MetadataFile FileName="Service153.xsd" MetadataType="Schema" ID="c6bafbd1-f721-4cf4-8601-b7297e3ac3ec" SourceId="1" SourceUrl="http://127.0.0.1:81/Service1.svc?xsd=xsd1" />
+    <MetadataFile FileName="Service1.xsd" MetadataType="Schema" ID="0a5727c1-5dd5-46e5-a319-8fa376851e09" SourceId="1" SourceUrl="http://127.0.0.1:81/Service1.svc?xsd=xsd4" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

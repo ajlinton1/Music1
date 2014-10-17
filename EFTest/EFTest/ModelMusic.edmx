@@ -1,0 +1,1150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MusicModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ARTIST">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="COMMENTS" Type="varchar" MaxLength="1024" />
+          <Property Name="RATING" Type="int" />
+          <Property Name="RADIO" Type="bit" />
+        </EntityType>
+        <EntityType Name="JobLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateRun" Type="date" Nullable="false" />
+          <Property Name="Details" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="SONG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="TITLE" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="ARTIST" Type="varchar" MaxLength="256" />
+          <Property Name="ALBUM" Type="varchar" MaxLength="256" />
+          <Property Name="GENRE" Type="varchar" MaxLength="256" />
+          <Property Name="DURATION" Type="bigint" />
+          <Property Name="BITRATE" Type="bigint" />
+          <Property Name="FILESIZE" Type="bigint" />
+          <Property Name="RATING" Type="int" Nullable="false" />
+          <Property Name="COMMENTS" Type="varchar" MaxLength="256" />
+          <Property Name="ARTIST_ID" Type="int" />
+          <Property Name="LOCATION" Type="varchar" MaxLength="1024" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UPLOADED" Type="bit" Nullable="false" />
+          <Property Name="HASH" Type="binary" MaxLength="50" />
+          <Property Name="UPDATED" Type="date" />
+          <Property Name="CREATED" Type="date" />
+        </EntityType>
+        <EntityType Name="SONG_HISTORY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SONG_ID" Type="int" Nullable="false" />
+          <Property Name="PLAY_TIME" Type="datetime" />
+        </EntityType>
+        <EntityType Name="SONG_RATED">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SONG_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sync">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="COMPUTER_NAME" Type="char" MaxLength="255" Nullable="false" />
+          <Property Name="DATE" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Music.dbo.GetRandomUploadedSongs' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="GetRandomUploadedSongs">
+          <Key>
+            <PropertyRef Name="TITLE" />
+            <PropertyRef Name="RATING" />
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="UPLOADED" />
+          </Key>
+          <Property Name="TITLE" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="ARTIST" Type="varchar" MaxLength="256" />
+          <Property Name="ALBUM" Type="varchar" MaxLength="256" />
+          <Property Name="GENRE" Type="varchar" MaxLength="256" />
+          <Property Name="DURATION" Type="bigint" />
+          <Property Name="BITRATE" Type="bigint" />
+          <Property Name="FILESIZE" Type="bigint" />
+          <Property Name="RATING" Type="int" Nullable="false" />
+          <Property Name="COMMENTS" Type="varchar" MaxLength="256" />
+          <Property Name="ARTIST_ID" Type="int" />
+          <Property Name="LOCATION" Type="varchar" MaxLength="1024" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="UPLOADED" Type="bit" Nullable="false" />
+          <Property Name="HASH" Type="binary" MaxLength="50" />
+          <Property Name="UPDATED" Type="date" />
+          <Property Name="CREATED" Type="date" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Music.dbo.GetSongPlayHistory' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="GetSongPlayHistory">
+          <Key>
+            <PropertyRef Name="Title" />
+          </Key>
+          <Property Name="Title" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="Artist" Type="varchar" MaxLength="256" />
+          <Property Name="Album" Type="varchar" MaxLength="256" />
+          <Property Name="Genre" Type="varchar" MaxLength="256" />
+          <Property Name="Location" Type="varchar" MaxLength="1024" />
+          <Property Name="Play_Time" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Music.dbo.MellowSongs' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MellowSongs">
+          <Key>
+            <PropertyRef Name="TITLE" />
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="UPLOADED" />
+          </Key>
+          <Property Name="TITLE" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="ARTIST" Type="varchar" MaxLength="256" />
+          <Property Name="ALBUM" Type="varchar" MaxLength="256" />
+          <Property Name="GENRE" Type="varchar" MaxLength="256" />
+          <Property Name="DURATION" Type="bigint" />
+          <Property Name="BITRATE" Type="bigint" />
+          <Property Name="FILESIZE" Type="bigint" />
+          <Property Name="COMMENTS" Type="varchar" MaxLength="256" />
+          <Property Name="ARTIST_ID" Type="int" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="UPLOADED" Type="bit" Nullable="false" />
+          <Property Name="LOCATION" Type="varchar" MaxLength="1024" />
+          <Property Name="HASH" Type="binary" MaxLength="50" />
+          <Property Name="UPDATED" Type="date" />
+          <Property Name="CREATED" Type="date" />
+          <Property Name="RATING" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Music.dbo.MellowSongs1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MellowSongs1">
+          <Key>
+            <PropertyRef Name="TITLE" />
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="UPLOADED" />
+          </Key>
+          <Property Name="TITLE" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="ARTIST" Type="varchar" MaxLength="256" />
+          <Property Name="ALBUM" Type="varchar" MaxLength="256" />
+          <Property Name="GENRE" Type="varchar" MaxLength="256" />
+          <Property Name="DURATION" Type="bigint" />
+          <Property Name="BITRATE" Type="bigint" />
+          <Property Name="FILESIZE" Type="bigint" />
+          <Property Name="COMMENTS" Type="varchar" MaxLength="256" />
+          <Property Name="ARTIST_ID" Type="int" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="UPLOADED" Type="bit" Nullable="false" />
+          <Property Name="LOCATION" Type="varchar" MaxLength="1024" />
+          <Property Name="HASH" Type="binary" MaxLength="50" />
+          <Property Name="UPDATED" Type="date" />
+          <Property Name="CREATED" Type="date" />
+          <Property Name="RATING" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Music.dbo.RandomSongs' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="RandomSongs">
+          <Key>
+            <PropertyRef Name="TITLE" />
+            <PropertyRef Name="RATING" />
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="UPLOADED" />
+          </Key>
+          <Property Name="TITLE" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="ARTIST" Type="varchar" MaxLength="256" />
+          <Property Name="ALBUM" Type="varchar" MaxLength="256" />
+          <Property Name="GENRE" Type="varchar" MaxLength="256" />
+          <Property Name="DURATION" Type="bigint" />
+          <Property Name="BITRATE" Type="bigint" />
+          <Property Name="FILESIZE" Type="bigint" />
+          <Property Name="RATING" Type="int" Nullable="false" />
+          <Property Name="COMMENTS" Type="varchar" MaxLength="256" />
+          <Property Name="ARTIST_ID" Type="int" />
+          <Property Name="LOCATION" Type="varchar" MaxLength="1024" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="UPLOADED" Type="bit" Nullable="false" />
+          <Property Name="HASH" Type="binary" MaxLength="50" />
+          <Property Name="UPDATED" Type="date" />
+          <Property Name="CREATED" Type="date" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Music.dbo.RecentSongs' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="RecentSongs">
+          <Key>
+            <PropertyRef Name="TITLE" />
+            <PropertyRef Name="RATING" />
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="UPLOADED" />
+          </Key>
+          <Property Name="TITLE" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="ARTIST" Type="varchar" MaxLength="256" />
+          <Property Name="ALBUM" Type="varchar" MaxLength="256" />
+          <Property Name="GENRE" Type="varchar" MaxLength="256" />
+          <Property Name="DURATION" Type="bigint" />
+          <Property Name="BITRATE" Type="bigint" />
+          <Property Name="FILESIZE" Type="bigint" />
+          <Property Name="RATING" Type="int" Nullable="false" />
+          <Property Name="COMMENTS" Type="varchar" MaxLength="256" />
+          <Property Name="ARTIST_ID" Type="int" />
+          <Property Name="LOCATION" Type="varchar" MaxLength="1024" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UPLOADED" Type="bit" Nullable="false" />
+          <Property Name="HASH" Type="binary" MaxLength="50" />
+          <Property Name="UPDATED" Type="date" />
+          <Property Name="CREATED" Type="date" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Music.dbo.SongsV' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SongsV">
+          <Key>
+            <PropertyRef Name="TITLE" />
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="UPLOADED" />
+          </Key>
+          <Property Name="TITLE" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="ARTIST" Type="varchar" MaxLength="256" />
+          <Property Name="ALBUM" Type="varchar" MaxLength="256" />
+          <Property Name="GENRE" Type="varchar" MaxLength="256" />
+          <Property Name="DURATION" Type="bigint" />
+          <Property Name="BITRATE" Type="bigint" />
+          <Property Name="FILESIZE" Type="bigint" />
+          <Property Name="COMMENTS" Type="varchar" MaxLength="256" />
+          <Property Name="ARTIST_ID" Type="int" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="UPLOADED" Type="bit" Nullable="false" />
+          <Property Name="LOCATION" Type="varchar" MaxLength="1024" />
+          <Property Name="HASH" Type="binary" MaxLength="50" />
+          <Property Name="UPDATED" Type="date" />
+          <Property Name="CREATED" Type="date" />
+          <Property Name="RATING" Type="int" />
+          <Property Name="newid" Type="uniqueidentifier" />
+        </EntityType>
+        <Association Name="FK_SONG_HISTORY_SONG">
+          <End Role="SONG" Type="Self.SONG" Multiplicity="1" />
+          <End Role="SONG_HISTORY" Type="Self.SONG_HISTORY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SONG">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SONG_HISTORY">
+              <PropertyRef Name="SONG_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SONG_RATED_SONG">
+          <End Role="SONG" Type="Self.SONG" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SONG_RATED" Type="Self.SONG_RATED" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SONG">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SONG_RATED">
+              <PropertyRef Name="SONG_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="GetRadioSongs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetRandomSong" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="InsertSong" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="title" Type="varchar" Mode="In" />
+          <Parameter Name="artist" Type="varchar" Mode="In" />
+          <Parameter Name="album" Type="varchar" Mode="In" />
+          <Parameter Name="genre" Type="varchar" Mode="In" />
+          <Parameter Name="duration" Type="bigint" Mode="In" />
+          <Parameter Name="filesize" Type="bigint" Mode="In" />
+          <Parameter Name="rating" Type="int" Mode="In" />
+          <Parameter Name="comments" Type="varchar" Mode="In" />
+          <Parameter Name="location" Type="varchar" Mode="In" />
+          <Parameter Name="hash" Type="binary" Mode="In" />
+          <Parameter Name="id" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="LoadMusicByArtist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Artist" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="LoadNewMusic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="MusicModelStoreContainer">
+          <EntitySet Name="ARTIST" EntityType="Self.ARTIST" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JobLog" EntityType="Self.JobLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SONG" EntityType="Self.SONG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SONG_HISTORY" EntityType="Self.SONG_HISTORY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SONG_RATED" EntityType="Self.SONG_RATED" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sync" EntityType="Self.Sync" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GetRandomUploadedSongs" EntityType="Self.GetRandomUploadedSongs" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [GetRandomUploadedSongs].[TITLE] AS [TITLE], 
+    [GetRandomUploadedSongs].[ARTIST] AS [ARTIST], 
+    [GetRandomUploadedSongs].[ALBUM] AS [ALBUM], 
+    [GetRandomUploadedSongs].[GENRE] AS [GENRE], 
+    [GetRandomUploadedSongs].[DURATION] AS [DURATION], 
+    [GetRandomUploadedSongs].[BITRATE] AS [BITRATE], 
+    [GetRandomUploadedSongs].[FILESIZE] AS [FILESIZE], 
+    [GetRandomUploadedSongs].[RATING] AS [RATING], 
+    [GetRandomUploadedSongs].[COMMENTS] AS [COMMENTS], 
+    [GetRandomUploadedSongs].[ARTIST_ID] AS [ARTIST_ID], 
+    [GetRandomUploadedSongs].[LOCATION] AS [LOCATION], 
+    [GetRandomUploadedSongs].[ID] AS [ID], 
+    [GetRandomUploadedSongs].[UPLOADED] AS [UPLOADED], 
+    [GetRandomUploadedSongs].[HASH] AS [HASH], 
+    [GetRandomUploadedSongs].[UPDATED] AS [UPDATED], 
+    [GetRandomUploadedSongs].[CREATED] AS [CREATED]
+    FROM [dbo].[GetRandomUploadedSongs] AS [GetRandomUploadedSongs]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="GetSongPlayHistory" EntityType="Self.GetSongPlayHistory" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [GetSongPlayHistory].[Title] AS [Title], 
+    [GetSongPlayHistory].[Artist] AS [Artist], 
+    [GetSongPlayHistory].[Album] AS [Album], 
+    [GetSongPlayHistory].[Genre] AS [Genre], 
+    [GetSongPlayHistory].[Location] AS [Location], 
+    [GetSongPlayHistory].[Play_Time] AS [Play_Time]
+    FROM [dbo].[GetSongPlayHistory] AS [GetSongPlayHistory]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MellowSongs" EntityType="Self.MellowSongs" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [MellowSongs].[TITLE] AS [TITLE], 
+    [MellowSongs].[ARTIST] AS [ARTIST], 
+    [MellowSongs].[ALBUM] AS [ALBUM], 
+    [MellowSongs].[GENRE] AS [GENRE], 
+    [MellowSongs].[DURATION] AS [DURATION], 
+    [MellowSongs].[BITRATE] AS [BITRATE], 
+    [MellowSongs].[FILESIZE] AS [FILESIZE], 
+    [MellowSongs].[COMMENTS] AS [COMMENTS], 
+    [MellowSongs].[ARTIST_ID] AS [ARTIST_ID], 
+    [MellowSongs].[ID] AS [ID], 
+    [MellowSongs].[UPLOADED] AS [UPLOADED], 
+    [MellowSongs].[LOCATION] AS [LOCATION], 
+    [MellowSongs].[HASH] AS [HASH], 
+    [MellowSongs].[UPDATED] AS [UPDATED], 
+    [MellowSongs].[CREATED] AS [CREATED], 
+    [MellowSongs].[RATING] AS [RATING]
+    FROM [dbo].[MellowSongs] AS [MellowSongs]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MellowSongs1" EntityType="Self.MellowSongs1" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [MellowSongs1].[TITLE] AS [TITLE], 
+    [MellowSongs1].[ARTIST] AS [ARTIST], 
+    [MellowSongs1].[ALBUM] AS [ALBUM], 
+    [MellowSongs1].[GENRE] AS [GENRE], 
+    [MellowSongs1].[DURATION] AS [DURATION], 
+    [MellowSongs1].[BITRATE] AS [BITRATE], 
+    [MellowSongs1].[FILESIZE] AS [FILESIZE], 
+    [MellowSongs1].[COMMENTS] AS [COMMENTS], 
+    [MellowSongs1].[ARTIST_ID] AS [ARTIST_ID], 
+    [MellowSongs1].[ID] AS [ID], 
+    [MellowSongs1].[UPLOADED] AS [UPLOADED], 
+    [MellowSongs1].[LOCATION] AS [LOCATION], 
+    [MellowSongs1].[HASH] AS [HASH], 
+    [MellowSongs1].[UPDATED] AS [UPDATED], 
+    [MellowSongs1].[CREATED] AS [CREATED], 
+    [MellowSongs1].[RATING] AS [RATING]
+    FROM [dbo].[MellowSongs1] AS [MellowSongs1]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="RandomSongs" EntityType="Self.RandomSongs" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [RandomSongs].[TITLE] AS [TITLE], 
+    [RandomSongs].[ARTIST] AS [ARTIST], 
+    [RandomSongs].[ALBUM] AS [ALBUM], 
+    [RandomSongs].[GENRE] AS [GENRE], 
+    [RandomSongs].[DURATION] AS [DURATION], 
+    [RandomSongs].[BITRATE] AS [BITRATE], 
+    [RandomSongs].[FILESIZE] AS [FILESIZE], 
+    [RandomSongs].[RATING] AS [RATING], 
+    [RandomSongs].[COMMENTS] AS [COMMENTS], 
+    [RandomSongs].[ARTIST_ID] AS [ARTIST_ID], 
+    [RandomSongs].[LOCATION] AS [LOCATION], 
+    [RandomSongs].[ID] AS [ID], 
+    [RandomSongs].[UPLOADED] AS [UPLOADED], 
+    [RandomSongs].[HASH] AS [HASH], 
+    [RandomSongs].[UPDATED] AS [UPDATED], 
+    [RandomSongs].[CREATED] AS [CREATED]
+    FROM [dbo].[RandomSongs] AS [RandomSongs]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="RecentSongs" EntityType="Self.RecentSongs" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [RecentSongs].[TITLE] AS [TITLE], 
+    [RecentSongs].[ARTIST] AS [ARTIST], 
+    [RecentSongs].[ALBUM] AS [ALBUM], 
+    [RecentSongs].[GENRE] AS [GENRE], 
+    [RecentSongs].[DURATION] AS [DURATION], 
+    [RecentSongs].[BITRATE] AS [BITRATE], 
+    [RecentSongs].[FILESIZE] AS [FILESIZE], 
+    [RecentSongs].[RATING] AS [RATING], 
+    [RecentSongs].[COMMENTS] AS [COMMENTS], 
+    [RecentSongs].[ARTIST_ID] AS [ARTIST_ID], 
+    [RecentSongs].[LOCATION] AS [LOCATION], 
+    [RecentSongs].[ID] AS [ID], 
+    [RecentSongs].[UPLOADED] AS [UPLOADED], 
+    [RecentSongs].[HASH] AS [HASH], 
+    [RecentSongs].[UPDATED] AS [UPDATED], 
+    [RecentSongs].[CREATED] AS [CREATED]
+    FROM [dbo].[RecentSongs] AS [RecentSongs]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SongsV" EntityType="Self.SongsV" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [SongsV].[TITLE] AS [TITLE], 
+    [SongsV].[ARTIST] AS [ARTIST], 
+    [SongsV].[ALBUM] AS [ALBUM], 
+    [SongsV].[GENRE] AS [GENRE], 
+    [SongsV].[DURATION] AS [DURATION], 
+    [SongsV].[BITRATE] AS [BITRATE], 
+    [SongsV].[FILESIZE] AS [FILESIZE], 
+    [SongsV].[COMMENTS] AS [COMMENTS], 
+    [SongsV].[ARTIST_ID] AS [ARTIST_ID], 
+    [SongsV].[ID] AS [ID], 
+    [SongsV].[UPLOADED] AS [UPLOADED], 
+    [SongsV].[LOCATION] AS [LOCATION], 
+    [SongsV].[HASH] AS [HASH], 
+    [SongsV].[UPDATED] AS [UPDATED], 
+    [SongsV].[CREATED] AS [CREATED], 
+    [SongsV].[RATING] AS [RATING], 
+    [SongsV].[newid] AS [newid]
+    FROM [dbo].[SongsV] AS [SongsV]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_SONG_HISTORY_SONG" Association="Self.FK_SONG_HISTORY_SONG">
+            <End Role="SONG" EntitySet="SONG" />
+            <End Role="SONG_HISTORY" EntitySet="SONG_HISTORY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SONG_RATED_SONG" Association="Self.FK_SONG_RATED_SONG">
+            <End Role="SONG" EntitySet="SONG" />
+            <End Role="SONG_RATED" EntitySet="SONG_RATED" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MusicModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ARTIST">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="COMMENTS" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Name="RATING" Type="Int32" />
+          <Property Name="RADIO" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="JobLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="DateRun" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SONG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="TITLE" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ARTIST" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="ALBUM" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="GENRE" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="DURATION" Type="Int64" />
+          <Property Name="BITRATE" Type="Int64" />
+          <Property Name="FILESIZE" Type="Int64" />
+          <Property Name="RATING" Type="Int32" Nullable="false" />
+          <Property Name="COMMENTS" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="ARTIST_ID" Type="Int32" />
+          <Property Name="LOCATION" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UPLOADED" Type="Boolean" Nullable="false" />
+          <Property Name="HASH" Type="Binary" MaxLength="50" FixedLength="true" />
+          <Property Name="UPDATED" Type="DateTime" Precision="0" />
+          <Property Name="CREATED" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="SONG_HISTORY" Relationship="Self.FK_SONG_HISTORY_SONG" FromRole="SONG" ToRole="SONG_HISTORY" />
+          <NavigationProperty Name="SONG_RATED" Relationship="Self.FK_SONG_RATED_SONG" FromRole="SONG" ToRole="SONG_RATED" />
+        </EntityType>
+        <EntityType Name="SONG_HISTORY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SONG_ID" Type="Int32" Nullable="false" />
+          <Property Name="PLAY_TIME" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="SONG" Relationship="Self.FK_SONG_HISTORY_SONG" FromRole="SONG_HISTORY" ToRole="SONG" />
+        </EntityType>
+        <EntityType Name="SONG_RATED">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SONG_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SONG" Relationship="Self.FK_SONG_RATED_SONG" FromRole="SONG_RATED" ToRole="SONG" />
+        </EntityType>
+        <EntityType Name="Sync">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="COMPUTER_NAME" Type="String" MaxLength="255" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="DATE" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="GetRandomUploadedSong">
+          <Key>
+            <PropertyRef Name="TITLE" />
+            <PropertyRef Name="RATING" />
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="UPLOADED" />
+          </Key>
+          <Property Name="TITLE" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ARTIST" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="ALBUM" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="GENRE" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="DURATION" Type="Int64" />
+          <Property Name="BITRATE" Type="Int64" />
+          <Property Name="FILESIZE" Type="Int64" />
+          <Property Name="RATING" Type="Int32" Nullable="false" />
+          <Property Name="COMMENTS" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="ARTIST_ID" Type="Int32" />
+          <Property Name="LOCATION" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="UPLOADED" Type="Boolean" Nullable="false" />
+          <Property Name="HASH" Type="Binary" MaxLength="50" FixedLength="true" />
+          <Property Name="UPDATED" Type="DateTime" Precision="0" />
+          <Property Name="CREATED" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="GetSongPlayHistory">
+          <Key>
+            <PropertyRef Name="Title" />
+          </Key>
+          <Property Name="Title" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Artist" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="Album" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="Genre" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="Location" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Name="Play_Time" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="MellowSong">
+          <Key>
+            <PropertyRef Name="TITLE" />
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="UPLOADED" />
+          </Key>
+          <Property Name="TITLE" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ARTIST" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="ALBUM" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="GENRE" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="DURATION" Type="Int64" />
+          <Property Name="BITRATE" Type="Int64" />
+          <Property Name="FILESIZE" Type="Int64" />
+          <Property Name="COMMENTS" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="ARTIST_ID" Type="Int32" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="UPLOADED" Type="Boolean" Nullable="false" />
+          <Property Name="LOCATION" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Name="HASH" Type="Binary" MaxLength="50" FixedLength="true" />
+          <Property Name="UPDATED" Type="DateTime" Precision="0" />
+          <Property Name="CREATED" Type="DateTime" Precision="0" />
+          <Property Name="RATING" Type="Int32" />
+        </EntityType>
+        <EntityType Name="MellowSongs1">
+          <Key>
+            <PropertyRef Name="TITLE" />
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="UPLOADED" />
+          </Key>
+          <Property Name="TITLE" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ARTIST" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="ALBUM" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="GENRE" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="DURATION" Type="Int64" />
+          <Property Name="BITRATE" Type="Int64" />
+          <Property Name="FILESIZE" Type="Int64" />
+          <Property Name="COMMENTS" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="ARTIST_ID" Type="Int32" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="UPLOADED" Type="Boolean" Nullable="false" />
+          <Property Name="LOCATION" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Name="HASH" Type="Binary" MaxLength="50" FixedLength="true" />
+          <Property Name="UPDATED" Type="DateTime" Precision="0" />
+          <Property Name="CREATED" Type="DateTime" Precision="0" />
+          <Property Name="RATING" Type="Int32" />
+        </EntityType>
+        <EntityType Name="RandomSong">
+          <Key>
+            <PropertyRef Name="TITLE" />
+            <PropertyRef Name="RATING" />
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="UPLOADED" />
+          </Key>
+          <Property Name="TITLE" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ARTIST" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="ALBUM" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="GENRE" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="DURATION" Type="Int64" />
+          <Property Name="BITRATE" Type="Int64" />
+          <Property Name="FILESIZE" Type="Int64" />
+          <Property Name="RATING" Type="Int32" Nullable="false" />
+          <Property Name="COMMENTS" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="ARTIST_ID" Type="Int32" />
+          <Property Name="LOCATION" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="UPLOADED" Type="Boolean" Nullable="false" />
+          <Property Name="HASH" Type="Binary" MaxLength="50" FixedLength="true" />
+          <Property Name="UPDATED" Type="DateTime" Precision="0" />
+          <Property Name="CREATED" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="RecentSong">
+          <Key>
+            <PropertyRef Name="TITLE" />
+            <PropertyRef Name="RATING" />
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="UPLOADED" />
+          </Key>
+          <Property Name="TITLE" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ARTIST" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="ALBUM" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="GENRE" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="DURATION" Type="Int64" />
+          <Property Name="BITRATE" Type="Int64" />
+          <Property Name="FILESIZE" Type="Int64" />
+          <Property Name="RATING" Type="Int32" Nullable="false" />
+          <Property Name="COMMENTS" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="ARTIST_ID" Type="Int32" />
+          <Property Name="LOCATION" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UPLOADED" Type="Boolean" Nullable="false" />
+          <Property Name="HASH" Type="Binary" MaxLength="50" FixedLength="true" />
+          <Property Name="UPDATED" Type="DateTime" Precision="0" />
+          <Property Name="CREATED" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="SongsV">
+          <Key>
+            <PropertyRef Name="TITLE" />
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="UPLOADED" />
+          </Key>
+          <Property Name="TITLE" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ARTIST" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="ALBUM" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="GENRE" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="DURATION" Type="Int64" />
+          <Property Name="BITRATE" Type="Int64" />
+          <Property Name="FILESIZE" Type="Int64" />
+          <Property Name="COMMENTS" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="ARTIST_ID" Type="Int32" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="UPLOADED" Type="Boolean" Nullable="false" />
+          <Property Name="LOCATION" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Name="HASH" Type="Binary" MaxLength="50" FixedLength="true" />
+          <Property Name="UPDATED" Type="DateTime" Precision="0" />
+          <Property Name="CREATED" Type="DateTime" Precision="0" />
+          <Property Name="RATING" Type="Int32" />
+          <Property Name="newid" Type="Guid" />
+        </EntityType>
+        <Association Name="FK_SONG_HISTORY_SONG">
+          <End Role="SONG" Type="Self.SONG" Multiplicity="1" />
+          <End Role="SONG_HISTORY" Type="Self.SONG_HISTORY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SONG">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SONG_HISTORY">
+              <PropertyRef Name="SONG_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SONG_RATED_SONG">
+          <End Role="SONG" Type="Self.SONG" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SONG_RATED" Type="Self.SONG_RATED" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SONG">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SONG_RATED">
+              <PropertyRef Name="SONG_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MusicEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ARTISTs" EntityType="Self.ARTIST" />
+          <EntitySet Name="JobLogs" EntityType="Self.JobLog" />
+          <EntitySet Name="SONGs" EntityType="Self.SONG" />
+          <EntitySet Name="SONG_HISTORY" EntityType="Self.SONG_HISTORY" />
+          <EntitySet Name="SONG_RATED" EntityType="Self.SONG_RATED" />
+          <EntitySet Name="Syncs" EntityType="Self.Sync" />
+          <EntitySet Name="GetRandomUploadedSongs" EntityType="Self.GetRandomUploadedSong" />
+          <EntitySet Name="GetSongPlayHistories" EntityType="Self.GetSongPlayHistory" />
+          <EntitySet Name="MellowSongs" EntityType="Self.MellowSong" />
+          <EntitySet Name="MellowSongs1" EntityType="Self.MellowSongs1" />
+          <EntitySet Name="RandomSongs" EntityType="Self.RandomSong" />
+          <EntitySet Name="RecentSongs" EntityType="Self.RecentSong" />
+          <EntitySet Name="SongsVs" EntityType="Self.SongsV" />
+          <AssociationSet Name="FK_SONG_HISTORY_SONG" Association="Self.FK_SONG_HISTORY_SONG">
+            <End Role="SONG" EntitySet="SONGs" />
+            <End Role="SONG_HISTORY" EntitySet="SONG_HISTORY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SONG_RATED_SONG" Association="Self.FK_SONG_RATED_SONG">
+            <End Role="SONG" EntitySet="SONGs" />
+            <End Role="SONG_RATED" EntitySet="SONG_RATED" />
+          </AssociationSet>
+          <FunctionImport Name="GetRadioSongs" ReturnType="Collection(MusicModel.GetRadioSongs_Result)" />
+          <FunctionImport Name="GetRandomSong" ReturnType="Collection(MusicModel.GetRandomSong_Result)" />
+          <FunctionImport Name="InsertSong" ReturnType="Collection(MusicModel.InsertSong_Result)">
+            <Parameter Name="title" Mode="In" Type="String" />
+            <Parameter Name="artist" Mode="In" Type="String" />
+            <Parameter Name="album" Mode="In" Type="String" />
+            <Parameter Name="genre" Mode="In" Type="String" />
+            <Parameter Name="duration" Mode="In" Type="Int64" />
+            <Parameter Name="filesize" Mode="In" Type="Int64" />
+            <Parameter Name="rating" Mode="In" Type="Int32" />
+            <Parameter Name="comments" Mode="In" Type="String" />
+            <Parameter Name="location" Mode="In" Type="String" />
+            <Parameter Name="hash" Mode="In" Type="Binary" />
+            <Parameter Name="id" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="LoadMusicByArtist" ReturnType="Collection(MusicModel.LoadMusicByArtist_Result)">
+          <Parameter Name="Artist" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="LoadNewMusic" ReturnType="Collection(MusicModel.LoadNewMusic_Result)" />
+        </EntityContainer>
+        <ComplexType Name="GetRadioSongs_Result">
+          <Property Type="String" Name="TITLE" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="ARTIST" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="ALBUM" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="GENRE" Nullable="true" MaxLength="256" />
+          <Property Type="Int64" Name="DURATION" Nullable="true" />
+          <Property Type="Int64" Name="BITRATE" Nullable="true" />
+          <Property Type="Int64" Name="FILESIZE" Nullable="true" />
+          <Property Type="String" Name="COMMENTS" Nullable="true" MaxLength="256" />
+          <Property Type="Int32" Name="ARTIST_ID" Nullable="true" />
+          <Property Type="String" Name="LOCATION" Nullable="true" MaxLength="1024" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Boolean" Name="UPLOADED" Nullable="false" />
+          <Property Type="Int32" Name="ARTIST_RATING" Nullable="true" />
+          <Property Type="Int32" Name="SONG_RATING" Nullable="true" />
+          <Property Type="Guid" Name="Column1" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetRandomSong_Result">
+          <Property Type="String" Name="TITLE" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="ARTIST" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="ALBUM" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="GENRE" Nullable="true" MaxLength="256" />
+          <Property Type="Int64" Name="DURATION" Nullable="true" />
+          <Property Type="Int64" Name="BITRATE" Nullable="true" />
+          <Property Type="Int64" Name="FILESIZE" Nullable="true" />
+          <Property Type="Int32" Name="RATING" Nullable="false" />
+          <Property Type="String" Name="COMMENTS" Nullable="true" MaxLength="256" />
+          <Property Type="Int32" Name="ARTIST_ID" Nullable="true" />
+          <Property Type="String" Name="LOCATION" Nullable="true" MaxLength="1024" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Boolean" Name="UPLOADED" Nullable="false" />
+          <Property Type="Int32" Name="ARTIST_RATING" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="InsertSong_Result">
+          <Property Type="String" Name="TITLE" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="ARTIST" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="ALBUM" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="GENRE" Nullable="true" MaxLength="256" />
+          <Property Type="Int64" Name="DURATION" Nullable="true" />
+          <Property Type="Int64" Name="BITRATE" Nullable="true" />
+          <Property Type="Int64" Name="FILESIZE" Nullable="true" />
+          <Property Type="Int32" Name="RATING" Nullable="false" />
+          <Property Type="String" Name="COMMENTS" Nullable="true" MaxLength="256" />
+          <Property Type="Int32" Name="ARTIST_ID" Nullable="true" />
+          <Property Type="String" Name="LOCATION" Nullable="true" MaxLength="1024" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Boolean" Name="UPLOADED" Nullable="false" />
+          <Property Type="Binary" Name="HASH" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="UPDATED" Nullable="true" />
+          <Property Type="DateTime" Name="CREATED" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="LoadMusicByArtist_Result">
+          <Property Type="String" Name="TITLE" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="ARTIST" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="ALBUM" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="GENRE" Nullable="true" MaxLength="256" />
+          <Property Type="Int64" Name="DURATION" Nullable="true" />
+          <Property Type="Int64" Name="BITRATE" Nullable="true" />
+          <Property Type="Int64" Name="FILESIZE" Nullable="true" />
+          <Property Type="String" Name="COMMENTS" Nullable="true" MaxLength="256" />
+          <Property Type="Int32" Name="ARTIST_ID" Nullable="true" />
+          <Property Type="String" Name="LOCATION" Nullable="true" MaxLength="1024" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Boolean" Name="UPLOADED" Nullable="false" />
+          <Property Type="Int32" Name="ARTIST_RATING" Nullable="true" />
+          <Property Type="Int32" Name="SONG_RATING" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="LoadNewMusic_Result">
+          <Property Type="String" Name="TITLE" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="ARTIST" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="ALBUM" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="GENRE" Nullable="true" MaxLength="256" />
+          <Property Type="Int64" Name="DURATION" Nullable="true" />
+          <Property Type="Int64" Name="BITRATE" Nullable="true" />
+          <Property Type="Int64" Name="FILESIZE" Nullable="true" />
+          <Property Type="String" Name="COMMENTS" Nullable="true" MaxLength="256" />
+          <Property Type="Int32" Name="ARTIST_ID" Nullable="true" />
+          <Property Type="String" Name="LOCATION" Nullable="true" MaxLength="1024" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Boolean" Name="UPLOADED" Nullable="false" />
+          <Property Type="Int32" Name="ARTIST_RATING" Nullable="true" />
+          <Property Type="Int32" Name="SONG_RATING" Nullable="true" />
+          <Property Type="Guid" Name="Column1" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MusicModelStoreContainer" CdmEntityContainer="MusicEntities">
+          <EntitySetMapping Name="ARTISTs">
+            <EntityTypeMapping TypeName="MusicModel.ARTIST">
+              <MappingFragment StoreEntitySet="ARTIST">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="COMMENTS" ColumnName="COMMENTS" />
+                <ScalarProperty Name="RATING" ColumnName="RATING" />
+                <ScalarProperty Name="RADIO" ColumnName="RADIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobLogs">
+            <EntityTypeMapping TypeName="MusicModel.JobLog">
+              <MappingFragment StoreEntitySet="JobLog">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DateRun" ColumnName="DateRun" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SONGs">
+            <EntityTypeMapping TypeName="MusicModel.SONG">
+              <MappingFragment StoreEntitySet="SONG">
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+                <ScalarProperty Name="ARTIST" ColumnName="ARTIST" />
+                <ScalarProperty Name="ALBUM" ColumnName="ALBUM" />
+                <ScalarProperty Name="GENRE" ColumnName="GENRE" />
+                <ScalarProperty Name="DURATION" ColumnName="DURATION" />
+                <ScalarProperty Name="BITRATE" ColumnName="BITRATE" />
+                <ScalarProperty Name="FILESIZE" ColumnName="FILESIZE" />
+                <ScalarProperty Name="RATING" ColumnName="RATING" />
+                <ScalarProperty Name="COMMENTS" ColumnName="COMMENTS" />
+                <ScalarProperty Name="ARTIST_ID" ColumnName="ARTIST_ID" />
+                <ScalarProperty Name="LOCATION" ColumnName="LOCATION" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UPLOADED" ColumnName="UPLOADED" />
+                <ScalarProperty Name="HASH" ColumnName="HASH" />
+                <ScalarProperty Name="UPDATED" ColumnName="UPDATED" />
+                <ScalarProperty Name="CREATED" ColumnName="CREATED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SONG_HISTORY">
+            <EntityTypeMapping TypeName="MusicModel.SONG_HISTORY">
+              <MappingFragment StoreEntitySet="SONG_HISTORY">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SONG_ID" ColumnName="SONG_ID" />
+                <ScalarProperty Name="PLAY_TIME" ColumnName="PLAY_TIME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SONG_RATED">
+            <EntityTypeMapping TypeName="MusicModel.SONG_RATED">
+              <MappingFragment StoreEntitySet="SONG_RATED">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SONG_ID" ColumnName="SONG_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Syncs">
+            <EntityTypeMapping TypeName="MusicModel.Sync">
+              <MappingFragment StoreEntitySet="Sync">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="COMPUTER_NAME" ColumnName="COMPUTER_NAME" />
+                <ScalarProperty Name="DATE" ColumnName="DATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GetRandomUploadedSongs">
+            <EntityTypeMapping TypeName="MusicModel.GetRandomUploadedSong">
+              <MappingFragment StoreEntitySet="GetRandomUploadedSongs">
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+                <ScalarProperty Name="ARTIST" ColumnName="ARTIST" />
+                <ScalarProperty Name="ALBUM" ColumnName="ALBUM" />
+                <ScalarProperty Name="GENRE" ColumnName="GENRE" />
+                <ScalarProperty Name="DURATION" ColumnName="DURATION" />
+                <ScalarProperty Name="BITRATE" ColumnName="BITRATE" />
+                <ScalarProperty Name="FILESIZE" ColumnName="FILESIZE" />
+                <ScalarProperty Name="RATING" ColumnName="RATING" />
+                <ScalarProperty Name="COMMENTS" ColumnName="COMMENTS" />
+                <ScalarProperty Name="ARTIST_ID" ColumnName="ARTIST_ID" />
+                <ScalarProperty Name="LOCATION" ColumnName="LOCATION" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UPLOADED" ColumnName="UPLOADED" />
+                <ScalarProperty Name="HASH" ColumnName="HASH" />
+                <ScalarProperty Name="UPDATED" ColumnName="UPDATED" />
+                <ScalarProperty Name="CREATED" ColumnName="CREATED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GetSongPlayHistories">
+            <EntityTypeMapping TypeName="MusicModel.GetSongPlayHistory">
+              <MappingFragment StoreEntitySet="GetSongPlayHistory">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Artist" ColumnName="Artist" />
+                <ScalarProperty Name="Album" ColumnName="Album" />
+                <ScalarProperty Name="Genre" ColumnName="Genre" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Play_Time" ColumnName="Play_Time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MellowSongs">
+            <EntityTypeMapping TypeName="MusicModel.MellowSong">
+              <MappingFragment StoreEntitySet="MellowSongs">
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+                <ScalarProperty Name="ARTIST" ColumnName="ARTIST" />
+                <ScalarProperty Name="ALBUM" ColumnName="ALBUM" />
+                <ScalarProperty Name="GENRE" ColumnName="GENRE" />
+                <ScalarProperty Name="DURATION" ColumnName="DURATION" />
+                <ScalarProperty Name="BITRATE" ColumnName="BITRATE" />
+                <ScalarProperty Name="FILESIZE" ColumnName="FILESIZE" />
+                <ScalarProperty Name="COMMENTS" ColumnName="COMMENTS" />
+                <ScalarProperty Name="ARTIST_ID" ColumnName="ARTIST_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UPLOADED" ColumnName="UPLOADED" />
+                <ScalarProperty Name="LOCATION" ColumnName="LOCATION" />
+                <ScalarProperty Name="HASH" ColumnName="HASH" />
+                <ScalarProperty Name="UPDATED" ColumnName="UPDATED" />
+                <ScalarProperty Name="CREATED" ColumnName="CREATED" />
+                <ScalarProperty Name="RATING" ColumnName="RATING" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MellowSongs1">
+            <EntityTypeMapping TypeName="MusicModel.MellowSongs1">
+              <MappingFragment StoreEntitySet="MellowSongs1">
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+                <ScalarProperty Name="ARTIST" ColumnName="ARTIST" />
+                <ScalarProperty Name="ALBUM" ColumnName="ALBUM" />
+                <ScalarProperty Name="GENRE" ColumnName="GENRE" />
+                <ScalarProperty Name="DURATION" ColumnName="DURATION" />
+                <ScalarProperty Name="BITRATE" ColumnName="BITRATE" />
+                <ScalarProperty Name="FILESIZE" ColumnName="FILESIZE" />
+                <ScalarProperty Name="COMMENTS" ColumnName="COMMENTS" />
+                <ScalarProperty Name="ARTIST_ID" ColumnName="ARTIST_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UPLOADED" ColumnName="UPLOADED" />
+                <ScalarProperty Name="LOCATION" ColumnName="LOCATION" />
+                <ScalarProperty Name="HASH" ColumnName="HASH" />
+                <ScalarProperty Name="UPDATED" ColumnName="UPDATED" />
+                <ScalarProperty Name="CREATED" ColumnName="CREATED" />
+                <ScalarProperty Name="RATING" ColumnName="RATING" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RandomSongs">
+            <EntityTypeMapping TypeName="MusicModel.RandomSong">
+              <MappingFragment StoreEntitySet="RandomSongs">
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+                <ScalarProperty Name="ARTIST" ColumnName="ARTIST" />
+                <ScalarProperty Name="ALBUM" ColumnName="ALBUM" />
+                <ScalarProperty Name="GENRE" ColumnName="GENRE" />
+                <ScalarProperty Name="DURATION" ColumnName="DURATION" />
+                <ScalarProperty Name="BITRATE" ColumnName="BITRATE" />
+                <ScalarProperty Name="FILESIZE" ColumnName="FILESIZE" />
+                <ScalarProperty Name="RATING" ColumnName="RATING" />
+                <ScalarProperty Name="COMMENTS" ColumnName="COMMENTS" />
+                <ScalarProperty Name="ARTIST_ID" ColumnName="ARTIST_ID" />
+                <ScalarProperty Name="LOCATION" ColumnName="LOCATION" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UPLOADED" ColumnName="UPLOADED" />
+                <ScalarProperty Name="HASH" ColumnName="HASH" />
+                <ScalarProperty Name="UPDATED" ColumnName="UPDATED" />
+                <ScalarProperty Name="CREATED" ColumnName="CREATED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecentSongs">
+            <EntityTypeMapping TypeName="MusicModel.RecentSong">
+              <MappingFragment StoreEntitySet="RecentSongs">
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+                <ScalarProperty Name="ARTIST" ColumnName="ARTIST" />
+                <ScalarProperty Name="ALBUM" ColumnName="ALBUM" />
+                <ScalarProperty Name="GENRE" ColumnName="GENRE" />
+                <ScalarProperty Name="DURATION" ColumnName="DURATION" />
+                <ScalarProperty Name="BITRATE" ColumnName="BITRATE" />
+                <ScalarProperty Name="FILESIZE" ColumnName="FILESIZE" />
+                <ScalarProperty Name="RATING" ColumnName="RATING" />
+                <ScalarProperty Name="COMMENTS" ColumnName="COMMENTS" />
+                <ScalarProperty Name="ARTIST_ID" ColumnName="ARTIST_ID" />
+                <ScalarProperty Name="LOCATION" ColumnName="LOCATION" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UPLOADED" ColumnName="UPLOADED" />
+                <ScalarProperty Name="HASH" ColumnName="HASH" />
+                <ScalarProperty Name="UPDATED" ColumnName="UPDATED" />
+                <ScalarProperty Name="CREATED" ColumnName="CREATED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SongsVs">
+            <EntityTypeMapping TypeName="MusicModel.SongsV">
+              <MappingFragment StoreEntitySet="SongsV">
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+                <ScalarProperty Name="ARTIST" ColumnName="ARTIST" />
+                <ScalarProperty Name="ALBUM" ColumnName="ALBUM" />
+                <ScalarProperty Name="GENRE" ColumnName="GENRE" />
+                <ScalarProperty Name="DURATION" ColumnName="DURATION" />
+                <ScalarProperty Name="BITRATE" ColumnName="BITRATE" />
+                <ScalarProperty Name="FILESIZE" ColumnName="FILESIZE" />
+                <ScalarProperty Name="COMMENTS" ColumnName="COMMENTS" />
+                <ScalarProperty Name="ARTIST_ID" ColumnName="ARTIST_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UPLOADED" ColumnName="UPLOADED" />
+                <ScalarProperty Name="LOCATION" ColumnName="LOCATION" />
+                <ScalarProperty Name="HASH" ColumnName="HASH" />
+                <ScalarProperty Name="UPDATED" ColumnName="UPDATED" />
+                <ScalarProperty Name="CREATED" ColumnName="CREATED" />
+                <ScalarProperty Name="RATING" ColumnName="RATING" />
+                <ScalarProperty Name="newid" ColumnName="newid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetRadioSongs" FunctionName="MusicModel.Store.GetRadioSongs">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MusicModel.GetRadioSongs_Result">
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+                <ScalarProperty Name="ARTIST" ColumnName="ARTIST" />
+                <ScalarProperty Name="ALBUM" ColumnName="ALBUM" />
+                <ScalarProperty Name="GENRE" ColumnName="GENRE" />
+                <ScalarProperty Name="DURATION" ColumnName="DURATION" />
+                <ScalarProperty Name="BITRATE" ColumnName="BITRATE" />
+                <ScalarProperty Name="FILESIZE" ColumnName="FILESIZE" />
+                <ScalarProperty Name="COMMENTS" ColumnName="COMMENTS" />
+                <ScalarProperty Name="ARTIST_ID" ColumnName="ARTIST_ID" />
+                <ScalarProperty Name="LOCATION" ColumnName="LOCATION" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UPLOADED" ColumnName="UPLOADED" />
+                <ScalarProperty Name="ARTIST_RATING" ColumnName="ARTIST_RATING" />
+                <ScalarProperty Name="SONG_RATING" ColumnName="SONG_RATING" />
+                <ScalarProperty Name="Column1" ColumnName="Column1" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetRandomSong" FunctionName="MusicModel.Store.GetRandomSong">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MusicModel.GetRandomSong_Result">
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+                <ScalarProperty Name="ARTIST" ColumnName="ARTIST" />
+                <ScalarProperty Name="ALBUM" ColumnName="ALBUM" />
+                <ScalarProperty Name="GENRE" ColumnName="GENRE" />
+                <ScalarProperty Name="DURATION" ColumnName="DURATION" />
+                <ScalarProperty Name="BITRATE" ColumnName="BITRATE" />
+                <ScalarProperty Name="FILESIZE" ColumnName="FILESIZE" />
+                <ScalarProperty Name="RATING" ColumnName="RATING" />
+                <ScalarProperty Name="COMMENTS" ColumnName="COMMENTS" />
+                <ScalarProperty Name="ARTIST_ID" ColumnName="ARTIST_ID" />
+                <ScalarProperty Name="LOCATION" ColumnName="LOCATION" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UPLOADED" ColumnName="UPLOADED" />
+                <ScalarProperty Name="ARTIST_RATING" ColumnName="ARTIST_RATING" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="InsertSong" FunctionName="MusicModel.Store.InsertSong">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MusicModel.InsertSong_Result">
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+                <ScalarProperty Name="ARTIST" ColumnName="ARTIST" />
+                <ScalarProperty Name="ALBUM" ColumnName="ALBUM" />
+                <ScalarProperty Name="GENRE" ColumnName="GENRE" />
+                <ScalarProperty Name="DURATION" ColumnName="DURATION" />
+                <ScalarProperty Name="BITRATE" ColumnName="BITRATE" />
+                <ScalarProperty Name="FILESIZE" ColumnName="FILESIZE" />
+                <ScalarProperty Name="RATING" ColumnName="RATING" />
+                <ScalarProperty Name="COMMENTS" ColumnName="COMMENTS" />
+                <ScalarProperty Name="ARTIST_ID" ColumnName="ARTIST_ID" />
+                <ScalarProperty Name="LOCATION" ColumnName="LOCATION" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UPLOADED" ColumnName="UPLOADED" />
+                <ScalarProperty Name="HASH" ColumnName="HASH" />
+                <ScalarProperty Name="UPDATED" ColumnName="UPDATED" />
+                <ScalarProperty Name="CREATED" ColumnName="CREATED" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="LoadMusicByArtist" FunctionName="MusicModel.Store.LoadMusicByArtist">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MusicModel.LoadMusicByArtist_Result">
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+                <ScalarProperty Name="ARTIST" ColumnName="ARTIST" />
+                <ScalarProperty Name="ALBUM" ColumnName="ALBUM" />
+                <ScalarProperty Name="GENRE" ColumnName="GENRE" />
+                <ScalarProperty Name="DURATION" ColumnName="DURATION" />
+                <ScalarProperty Name="BITRATE" ColumnName="BITRATE" />
+                <ScalarProperty Name="FILESIZE" ColumnName="FILESIZE" />
+                <ScalarProperty Name="COMMENTS" ColumnName="COMMENTS" />
+                <ScalarProperty Name="ARTIST_ID" ColumnName="ARTIST_ID" />
+                <ScalarProperty Name="LOCATION" ColumnName="LOCATION" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UPLOADED" ColumnName="UPLOADED" />
+                <ScalarProperty Name="ARTIST_RATING" ColumnName="ARTIST_RATING" />
+                <ScalarProperty Name="SONG_RATING" ColumnName="SONG_RATING" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="LoadNewMusic" FunctionName="MusicModel.Store.LoadNewMusic">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MusicModel.LoadNewMusic_Result">
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+                <ScalarProperty Name="ARTIST" ColumnName="ARTIST" />
+                <ScalarProperty Name="ALBUM" ColumnName="ALBUM" />
+                <ScalarProperty Name="GENRE" ColumnName="GENRE" />
+                <ScalarProperty Name="DURATION" ColumnName="DURATION" />
+                <ScalarProperty Name="BITRATE" ColumnName="BITRATE" />
+                <ScalarProperty Name="FILESIZE" ColumnName="FILESIZE" />
+                <ScalarProperty Name="COMMENTS" ColumnName="COMMENTS" />
+                <ScalarProperty Name="ARTIST_ID" ColumnName="ARTIST_ID" />
+                <ScalarProperty Name="LOCATION" ColumnName="LOCATION" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UPLOADED" ColumnName="UPLOADED" />
+                <ScalarProperty Name="ARTIST_RATING" ColumnName="ARTIST_RATING" />
+                <ScalarProperty Name="SONG_RATING" ColumnName="SONG_RATING" />
+                <ScalarProperty Name="Column1" ColumnName="Column1" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

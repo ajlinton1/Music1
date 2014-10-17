@@ -1,0 +1,8 @@
+#response file
+/r:system.dll
+/R:System.Drawing.DLL
+/R:System.Windows.Forms.DLL
+/t:winexe
+/unsafe
+/debug+
+id3.cs id3Lib.cs

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="IdSharpHarness">
+</Property><Property Name="Solution File" Value="D:\Projects\Music\IdSharp\harness\source\csharp\IdSharpHarness.sln">
+</Property><Property Name="Date" Value="Sunday, December 09, 2007">
+</Property><Property Name="Time" Value="19:01:12 PM">
+</Property></Properties><Event ErrorLevel="0" Project="IdSharpHarness" Source="IdSharpHarness.csproj" Description="Project file successfully backed up as D:\Projects\Music\IdSharp\harness\source\csharp\Backup\IdSharpHarness.csproj">
+</Event><Event ErrorLevel="0" Project="IdSharpHarness" Source="UserControls\ID3v1UserControl.cs" Description="File successfully backed up as D:\Projects\Music\IdSharp\harness\source\csharp\Backup\UserControls\ID3v1UserControl.cs">
+</Event><Event ErrorLevel="0" Project="IdSharpHarness" Source="UserControls\ID3v1UserControl.Designer.cs" Description="File successfully backed up as D:\Projects\Music\IdSharp\harness\source\csharp\Backup\UserControls\ID3v1UserControl.Designer.cs">
+</Event><Event ErrorLevel="0" Project="IdSharpHarness" Source="UserControls\ID3v2UserControl.cs" Description="File successfully backed up as D:\Projects\Music\IdSharp\harness\source\csharp\Backup\UserControls\ID3v2UserControl.cs">
+</Event><Event ErrorLevel="0" Project="IdSharpHarness" Source="UserControls\ID3v2UserControl.Designer.cs" Description="File successfully backed up as D:\Projects\Music\IdSharp\harness\source\csharp\Backup\UserControls\ID3v2UserControl.Designer.cs">
+</Event><Event ErrorLevel="0" Project="IdSharpHarness" Source="MainForm.cs" Description="File successfully backed up as D:\Projects\Music\IdSharp\harness\source\csharp\Backup\MainForm.cs">
+</Event><Event ErrorLevel="0" Project="IdSharpHarness" Source="MainForm.Designer.cs" Description="File successfully backed up as D:\Projects\Music\IdSharp\harness\source\csharp\Backup\MainForm.Designer.cs">
+</Event><Event ErrorLevel="0" Project="IdSharpHarness" Source="Program.cs" Description="File successfully backed up as D:\Projects\Music\IdSharp\harness\source\csharp\Backup\Program.cs">
+</Event><Event ErrorLevel="0" Project="IdSharpHarness" Source="Properties\AssemblyInfo.cs" Description="File successfully backed up as D:\Projects\Music\IdSharp\harness\source\csharp\Backup\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="IdSharpHarness" Source="Properties\Resources.Designer.cs" Description="File successfully backed up as D:\Projects\Music\IdSharp\harness\source\csharp\Backup\Properties\Resources.Designer.cs">
+</Event><Event ErrorLevel="0" Project="IdSharpHarness" Source="Track.cs" Description="File successfully backed up as D:\Projects\Music\IdSharp\harness\source\csharp\Backup\Track.cs">
+</Event><Event ErrorLevel="0" Project="IdSharpHarness" Source="Resources\open_image16_h.bmp" Description="File successfully backed up as D:\Projects\Music\IdSharp\harness\source\csharp\Backup\Resources\open_image16_h.bmp">
+</Event><Event ErrorLevel="0" Project="IdSharpHarness" Source="Resources\save16_h.bmp" Description="File successfully backed up as D:\Projects\Music\IdSharp\harness\source\csharp\Backup\Resources\save16_h.bmp">
+</Event><Event ErrorLevel="0" Project="IdSharpHarness" Source="UserControls\ID3v1UserControl.resx" Description="File successfully backed up as D:\Projects\Music\IdSharp\harness\source\csharp\Backup\UserControls\ID3v1UserControl.resx">
+</Event><Event ErrorLevel="0" Project="IdSharpHarness" Source="UserControls\ID3v2UserControl.resx" Description="File successfully backed up as D:\Projects\Music\IdSharp\harness\source\csharp\Backup\UserControls\ID3v2UserControl.resx">
+</Event><Event ErrorLevel="0" Project="IdSharpHarness" Source="MainForm.resx" Description="File successfully backed up as D:\Projects\Music\IdSharp\harness\source\csharp\Backup\MainForm.resx">
+</Event><Event ErrorLevel="0" Project="IdSharpHarness" Source="Properties\Resources.resx" Description="File successfully backed up as D:\Projects\Music\IdSharp\harness\source\csharp\Backup\Properties\Resources.resx">
+</Event><Event ErrorLevel="0" Project="IdSharpHarness" Source="IdSharpHarness.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="IdSharpHarness" Source="IdSharpHarness.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="IdSharpHarness" Source="IdSharpHarness.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

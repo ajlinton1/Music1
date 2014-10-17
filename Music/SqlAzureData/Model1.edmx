@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MusicModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="MusicModelStoreContainer">
+          <EntitySet Name="ARTIST" EntityType="MusicModel.Store.ARTIST" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="SONG" EntityType="MusicModel.Store.SONG" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="SONG_RATED" EntityType="MusicModel.Store.SONG_RATED" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <AssociationSet Name="FK_SONG_RATED_SONG" Association="MusicModel.Store.FK_SONG_RATED_SONG">
+            <End Role="SONG" EntitySet="SONG" />
+            <End Role="SONG_RATED" EntitySet="SONG_RATED" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ARTIST">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="varchar" Nullable="false" MaxLength="256" />
+          <Property Name="COMMENTS" Type="varchar" MaxLength="1024" />
+          <Property Name="RATING" Type="int" />
+          <Property Name="RADIO" Type="bit" />
+        </EntityType>
+        <EntityType Name="SONG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="TITLE" Type="varchar" Nullable="false" MaxLength="256" />
+          <Property Name="ARTIST" Type="varchar" MaxLength="256" />
+          <Property Name="ALBUM" Type="varchar" MaxLength="256" />
+          <Property Name="GENRE" Type="varchar" MaxLength="256" />
+          <Property Name="DURATION" Type="bigint" />
+          <Property Name="BITRATE" Type="bigint" />
+          <Property Name="FILESIZE" Type="bigint" />
+          <Property Name="RATING" Type="int" Nullable="false" />
+          <Property Name="COMMENTS" Type="varchar" MaxLength="256" />
+          <Property Name="ARTIST_ID" Type="int" />
+          <Property Name="LOCATION" Type="varchar" MaxLength="1024" />
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UPLOADED" Type="bit" Nullable="false" />
+          <Property Name="HASH" Type="binary" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SONG_RATED">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SONG_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_SONG_RATED_SONG">
+          <End Role="SONG" Type="MusicModel.Store.SONG" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SONG_RATED" Type="MusicModel.Store.SONG_RATED" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SONG">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SONG_RATED">
+              <PropertyRef Name="SONG_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="GetRadioSongs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetRandomSong" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="LoadMusicByArtist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Artist" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="LoadNewMusic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MusicModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="MusicEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+          <EntitySet Name="ARTIST" EntityType="MusicModel.ARTIST" />
+          <EntitySet Name="SONG" EntityType="MusicModel.SONG" />
+          <EntitySet Name="SONG_RATED" EntityType="MusicModel.SONG_RATED" />
+          <AssociationSet Name="FK_SONG_RATED_SONG" Association="MusicModel.FK_SONG_RATED_SONG">
+            <End Role="SONG" EntitySet="SONG" />
+            <End Role="SONG_RATED" EntitySet="SONG_RATED" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ARTIST">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="NAME" Type="String" Nullable="false" MaxLength="256" Unicode="false" FixedLength="false" />
+          <Property Name="COMMENTS" Type="String" MaxLength="1024" Unicode="false" FixedLength="false" />
+          <Property Name="RATING" Type="Int32" />
+          <Property Name="RADIO" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="SONG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="TITLE" Type="String" Nullable="false" MaxLength="256" Unicode="false" FixedLength="false" />
+          <Property Name="ARTIST" Type="String" MaxLength="256" Unicode="false" FixedLength="false" />
+          <Property Name="ALBUM" Type="String" MaxLength="256" Unicode="false" FixedLength="false" />
+          <Property Name="GENRE" Type="String" MaxLength="256" Unicode="false" FixedLength="false" />
+          <Property Name="DURATION" Type="Int64" />
+          <Property Name="BITRATE" Type="Int64" />
+          <Property Name="FILESIZE" Type="Int64" />
+          <Property Name="RATING" Type="Int32" Nullable="false" />
+          <Property Name="COMMENTS" Type="String" MaxLength="256" Unicode="false" FixedLength="false" />
+          <Property Name="ARTIST_ID" Type="Int32" />
+          <Property Name="LOCATION" Type="String" MaxLength="1024" Unicode="false" FixedLength="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="UPLOADED" Type="Boolean" Nullable="false" />
+          <Property Name="HASH" Type="Binary" MaxLength="50" FixedLength="true" />
+          <NavigationProperty Name="SONG_RATED" Relationship="MusicModel.FK_SONG_RATED_SONG" FromRole="SONG" ToRole="SONG_RATED" />
+        </EntityType>
+        <EntityType Name="SONG_RATED">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="SONG_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SONG" Relationship="MusicModel.FK_SONG_RATED_SONG" FromRole="SONG_RATED" ToRole="SONG" />
+        </EntityType>
+        <Association Name="FK_SONG_RATED_SONG">
+          <End Role="SONG" Type="MusicModel.SONG" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SONG_RATED" Type="MusicModel.SONG_RATED" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SONG">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SONG_RATED">
+              <PropertyRef Name="SONG_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MusicModelStoreContainer" CdmEntityContainer="MusicEntities">
+          <EntitySetMapping Name="ARTIST"><EntityTypeMapping TypeName="MusicModel.ARTIST"><MappingFragment StoreEntitySet="ARTIST">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="NAME" ColumnName="NAME" />
+            <ScalarProperty Name="COMMENTS" ColumnName="COMMENTS" />
+            <ScalarProperty Name="RATING" ColumnName="RATING" />
+            <ScalarProperty Name="RADIO" ColumnName="RADIO" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="SONG"><EntityTypeMapping TypeName="MusicModel.SONG"><MappingFragment StoreEntitySet="SONG">
+            <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+            <ScalarProperty Name="ARTIST" ColumnName="ARTIST" />
+            <ScalarProperty Name="ALBUM" ColumnName="ALBUM" />
+            <ScalarProperty Name="GENRE" ColumnName="GENRE" />
+            <ScalarProperty Name="DURATION" ColumnName="DURATION" />
+            <ScalarProperty Name="BITRATE" ColumnName="BITRATE" />
+            <ScalarProperty Name="FILESIZE" ColumnName="FILESIZE" />
+            <ScalarProperty Name="RATING" ColumnName="RATING" />
+            <ScalarProperty Name="COMMENTS" ColumnName="COMMENTS" />
+            <ScalarProperty Name="ARTIST_ID" ColumnName="ARTIST_ID" />
+            <ScalarProperty Name="LOCATION" ColumnName="LOCATION" />
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="UPLOADED" ColumnName="UPLOADED" />
+            <ScalarProperty Name="HASH" ColumnName="HASH" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="SONG_RATED"><EntityTypeMapping TypeName="MusicModel.SONG_RATED"><MappingFragment StoreEntitySet="SONG_RATED">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="SONG_ID" ColumnName="SONG_ID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model1">
+        <EntityTypeShape EntityType="MusicModel.ARTIST" Width="1.5" PointX="2.75" PointY="4.75" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicModel.SONG" Width="1.5" PointX="0.75" PointY="1" Height="3.9033007812499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicModel.SONG_RATED" Width="1.5" PointX="3" PointY="2.125" Height="1.5956835937499996" IsExpanded="true" />
+        <AssociationConnector Association="MusicModel.FK_SONG_RATED_SONG" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="2.922841796875" />
+          <ConnectorPoint PointX="3" PointY="2.922841796875" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

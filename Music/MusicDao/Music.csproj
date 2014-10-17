@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5F1EAE01-A295-4E46-8A93-EE7B96A2F907}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>com.andrewlinton.music</RootNamespace>
+    <AssemblyName>Music</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\MusicManager\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\MusicManager\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="ID3Reader">
+      <HintPath>..\Lib\ID3Reader.dll</HintPath>
+    </Reference>
+    <Reference Include="IdSharp">
+      <HintPath>..\Lib\IdSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Edm, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\MusicManager\packages\Microsoft.Data.Edm.5.6.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\MusicManager\packages\Microsoft.Data.OData.5.6.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\MusicManager\packages\Microsoft.Data.Services.Client.5.6.0\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.CloudDrive, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Windows Azure SDK\v1.2\ref\Microsoft.WindowsAzure.CloudDrive.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration, Version=1.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\MusicManager\packages\Microsoft.WindowsAzure.ConfigurationManager.1.8.0.0\lib\net35-full\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Diagnostics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Windows Azure SDK\v1.2\ref\Microsoft.WindowsAzure.Diagnostics.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.ServiceRuntime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Windows Azure SDK\v1.2\ref\Microsoft.WindowsAzure.ServiceRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=4.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\MusicManager\packages\WindowsAzure.Storage.4.2.1\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\MusicManager\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Spatial, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\MusicManager\packages\System.Spatial.5.6.0\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UltraID3Lib">
+      <HintPath>..\Lib\UltraID3Lib.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ARTIST.cs">
+      <DependentUpon>MusicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FtpManager.cs" />
+    <Compile Include="Genre.cs" />
+    <Compile Include="GenreService.cs" />
+    <Compile Include="GetRadioSongs_Result.cs">
+      <DependentUpon>MusicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetRandomSong_Result.cs">
+      <DependentUpon>MusicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetRandomUploadedSongs.cs">
+      <DependentUpon>MusicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetSongPlayHistory.cs">
+      <DependentUpon>MusicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="id3Lib.cs" />
+    <Compile Include="IMusicDao.cs" />
+    <Compile Include="InsertSong_Result.cs">
+      <DependentUpon>MusicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IUploadProcessor.cs" />
+    <Compile Include="JobLog.cs">
+      <DependentUpon>MusicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JobLogRepository.cs" />
+    <Compile Include="LoadMusicByArtist_Result.cs">
+      <DependentUpon>MusicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoadNewMusic_Result.cs">
+      <DependentUpon>MusicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MellowSongs.cs">
+      <DependentUpon>MusicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MellowSongs1.cs">
+      <DependentUpon>MusicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MusicDao.cs" />
+    <Compile Include="MusicModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MusicModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MusicModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MusicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MusicModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MusicModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="RandomSongs.cs">
+      <DependentUpon>MusicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RecentSongs.cs">
+      <DependentUpon>MusicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SONG.cs">
+      <DependentUpon>MusicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SongDownloader.cs" />
+    <Compile Include="SongExt.cs" />
+    <Compile Include="SongLocal.cs" />
+    <Compile Include="SongsV.cs">
+      <DependentUpon>MusicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SONG_HISTORY.cs">
+      <DependentUpon>MusicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SONG_RATED.cs">
+      <DependentUpon>MusicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sync.cs">
+      <DependentUpon>MusicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TagUpdater.cs" />
+    <Compile Include="UploadProcessor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="MusicModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MusicModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="MusicModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MusicModel.edmx</DependentUpon>
+      <LastGenOutput>MusicModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="MusicModel.edmx.diagram">
+      <DependentUpon>MusicModel.edmx</DependentUpon>
+    </None>
+    <None Include="MusicModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MusicModel.edmx</DependentUpon>
+      <LastGenOutput>MusicModel.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\MusicManager\AzureTable\AzureTable.csproj">
+      <Project>{8e03f5df-1a99-40c8-9034-bd2c910691d4}</Project>
+      <Name>AzureTable</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AzureBlob\AzureBlob.csproj">
+      <Project>{92744D38-2D13-40E4-A7CF-B4203EDB7822}</Project>
+      <Name>AzureBlob</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MediaCatalog\MediaCatalog.csproj">
+      <Project>{55F32DF2-0E4B-4E03-9A02-C511854C4199}</Project>
+      <Name>MediaCatalog</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SqlAzureData\SqlAzureData.csproj">
+      <Project>{4CF00F1E-BE3C-414B-AA04-D82C9B0C9855}</Project>
+      <Name>SqlAzureData</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

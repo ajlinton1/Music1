@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WCFServiceWebRole1" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WCFServiceWebRole1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://127.0.0.1:81/Service1.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+  <xs:complexType name="CompositeType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BoolValue" type="xs:boolean" />
+      <xs:element minOccurs="0" name="StringValue" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CompositeType" nillable="true" type="tns:CompositeType" />
+  <xs:complexType name="ArrayOfSONG">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SONG" nillable="true" type="tns:SONG" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSONG" nillable="true" type="tns:ArrayOfSONG" />
+  <xs:complexType name="SONG">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q1:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ALBUM" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ARTIST" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ARTIST_ID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="BITRATE" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="COMMENTS" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DURATION" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="FILESIZE" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="GENRE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HASH" nillable="true" type="xs:base64Binary" />
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="LOCATION" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RATING" type="xs:int" />
+          <xs:element minOccurs="0" name="SONG_RATED" nillable="true" type="tns:ArrayOfSONG_RATED" />
+          <xs:element minOccurs="0" name="TITLE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPLOADED" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SONG" nillable="true" type="tns:SONG" />
+  <xs:complexType name="ArrayOfSONG_RATED">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SONG_RATED" nillable="true" type="tns:SONG_RATED" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSONG_RATED" nillable="true" type="tns:ArrayOfSONG_RATED" />
+  <xs:complexType name="SONG_RATED">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q2:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="SONG" nillable="true" type="tns:SONG" />
+          <xs:element minOccurs="0" name="SONGReference" nillable="true" type="q2:EntityReferenceOfSONGptp8O7NE" />
+          <xs:element minOccurs="0" name="SONG_ID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SONG_RATED" nillable="true" type="tns:SONG_RATED" />
+</xs:schema>

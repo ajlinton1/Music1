@@ -1,0 +1,166 @@
+﻿<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="1.0">
+    <Schema Namespace="MusicModel" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <EntityType Name="ARTIST">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="NAME" Type="Edm.String" Nullable="false" MaxLength="256" Unicode="false" FixedLength="false" />
+        <Property Name="COMMENTS" Type="Edm.String" Nullable="true" MaxLength="1024" Unicode="false" FixedLength="false" />
+        <Property Name="RATING" Type="Edm.Int32" Nullable="true" />
+        <Property Name="RADIO" Type="Edm.Boolean" Nullable="true" />
+      </EntityType>
+      <EntityType Name="SONG">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="TITLE" Type="Edm.String" Nullable="false" MaxLength="256" Unicode="false" FixedLength="false" />
+        <Property Name="ARTIST" Type="Edm.String" Nullable="true" MaxLength="256" Unicode="false" FixedLength="false" />
+        <Property Name="ALBUM" Type="Edm.String" Nullable="true" MaxLength="256" Unicode="false" FixedLength="false" />
+        <Property Name="GENRE" Type="Edm.String" Nullable="true" MaxLength="256" Unicode="false" FixedLength="false" />
+        <Property Name="DURATION" Type="Edm.Int64" Nullable="true" />
+        <Property Name="BITRATE" Type="Edm.Int64" Nullable="true" />
+        <Property Name="FILESIZE" Type="Edm.Int64" Nullable="true" />
+        <Property Name="RATING" Type="Edm.Int32" Nullable="false" />
+        <Property Name="COMMENTS" Type="Edm.String" Nullable="true" MaxLength="256" Unicode="false" FixedLength="false" />
+        <Property Name="ARTIST_ID" Type="Edm.Int32" Nullable="true" />
+        <Property Name="LOCATION" Type="Edm.String" Nullable="true" MaxLength="1024" Unicode="false" FixedLength="false" />
+        <Property Name="ID" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="UPLOADED" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="HASH" Type="Edm.Binary" Nullable="true" MaxLength="50" FixedLength="true" />
+        <Property Name="UPDATED" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="CREATED" Type="Edm.DateTime" Nullable="true" />
+      </EntityType>
+      <EntityType Name="MellowSongs">
+        <Key>
+          <PropertyRef Name="TITLE" />
+          <PropertyRef Name="ID" />
+          <PropertyRef Name="UPLOADED" />
+        </Key>
+        <Property Name="TITLE" Type="Edm.String" Nullable="false" MaxLength="256" Unicode="false" FixedLength="false" />
+        <Property Name="ARTIST" Type="Edm.String" Nullable="true" MaxLength="256" Unicode="false" FixedLength="false" />
+        <Property Name="ALBUM" Type="Edm.String" Nullable="true" MaxLength="256" Unicode="false" FixedLength="false" />
+        <Property Name="GENRE" Type="Edm.String" Nullable="true" MaxLength="256" Unicode="false" FixedLength="false" />
+        <Property Name="DURATION" Type="Edm.Int64" Nullable="true" />
+        <Property Name="BITRATE" Type="Edm.Int64" Nullable="true" />
+        <Property Name="FILESIZE" Type="Edm.Int64" Nullable="true" />
+        <Property Name="COMMENTS" Type="Edm.String" Nullable="true" MaxLength="256" Unicode="false" FixedLength="false" />
+        <Property Name="ARTIST_ID" Type="Edm.Int32" Nullable="true" />
+        <Property Name="ID" Type="Edm.Int32" Nullable="false" />
+        <Property Name="UPLOADED" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="LOCATION" Type="Edm.String" Nullable="true" MaxLength="1024" Unicode="false" FixedLength="false" />
+        <Property Name="HASH" Type="Edm.Binary" Nullable="true" MaxLength="50" FixedLength="true" />
+        <Property Name="UPDATED" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="CREATED" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="RATING" Type="Edm.Int32" Nullable="true" />
+      </EntityType>
+      <EntityType Name="RandomSongs">
+        <Key>
+          <PropertyRef Name="TITLE" />
+          <PropertyRef Name="RATING" />
+          <PropertyRef Name="ID" />
+          <PropertyRef Name="UPLOADED" />
+        </Key>
+        <Property Name="TITLE" Type="Edm.String" Nullable="false" MaxLength="256" Unicode="false" FixedLength="false" />
+        <Property Name="ARTIST" Type="Edm.String" Nullable="true" MaxLength="256" Unicode="false" FixedLength="false" />
+        <Property Name="ALBUM" Type="Edm.String" Nullable="true" MaxLength="256" Unicode="false" FixedLength="false" />
+        <Property Name="GENRE" Type="Edm.String" Nullable="true" MaxLength="256" Unicode="false" FixedLength="false" />
+        <Property Name="DURATION" Type="Edm.Int64" Nullable="true" />
+        <Property Name="BITRATE" Type="Edm.Int64" Nullable="true" />
+        <Property Name="FILESIZE" Type="Edm.Int64" Nullable="true" />
+        <Property Name="RATING" Type="Edm.Int32" Nullable="false" />
+        <Property Name="COMMENTS" Type="Edm.String" Nullable="true" MaxLength="256" Unicode="false" FixedLength="false" />
+        <Property Name="ARTIST_ID" Type="Edm.Int32" Nullable="true" />
+        <Property Name="LOCATION" Type="Edm.String" Nullable="true" MaxLength="1024" Unicode="false" FixedLength="false" />
+        <Property Name="ID" Type="Edm.Int32" Nullable="false" />
+        <Property Name="UPLOADED" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="HASH" Type="Edm.Binary" Nullable="true" MaxLength="50" FixedLength="true" />
+        <Property Name="UPDATED" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="CREATED" Type="Edm.DateTime" Nullable="true" />
+      </EntityType>
+      <EntityType Name="RecentSong">
+        <Key>
+          <PropertyRef Name="TITLE" />
+          <PropertyRef Name="RATING" />
+          <PropertyRef Name="ID" />
+          <PropertyRef Name="UPLOADED" />
+        </Key>
+        <Property Name="TITLE" Type="Edm.String" Nullable="false" MaxLength="256" Unicode="false" FixedLength="false" />
+        <Property Name="ARTIST" Type="Edm.String" Nullable="true" MaxLength="256" Unicode="false" FixedLength="false" />
+        <Property Name="ALBUM" Type="Edm.String" Nullable="true" MaxLength="256" Unicode="false" FixedLength="false" />
+        <Property Name="GENRE" Type="Edm.String" Nullable="true" MaxLength="256" Unicode="false" FixedLength="false" />
+        <Property Name="DURATION" Type="Edm.Int64" Nullable="true" />
+        <Property Name="BITRATE" Type="Edm.Int64" Nullable="true" />
+        <Property Name="FILESIZE" Type="Edm.Int64" Nullable="true" />
+        <Property Name="RATING" Type="Edm.Int32" Nullable="false" />
+        <Property Name="COMMENTS" Type="Edm.String" Nullable="true" MaxLength="256" Unicode="false" FixedLength="false" />
+        <Property Name="ARTIST_ID" Type="Edm.Int32" Nullable="true" />
+        <Property Name="LOCATION" Type="Edm.String" Nullable="true" MaxLength="1024" Unicode="false" FixedLength="false" />
+        <Property Name="ID" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="UPLOADED" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="HASH" Type="Edm.Binary" Nullable="true" MaxLength="50" FixedLength="true" />
+        <Property Name="UPDATED" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="CREATED" Type="Edm.DateTime" Nullable="true" />
+      </EntityType>
+      <EntityType Name="MellowSongs1">
+        <Key>
+          <PropertyRef Name="TITLE" />
+          <PropertyRef Name="ID" />
+          <PropertyRef Name="UPLOADED" />
+        </Key>
+        <Property Name="TITLE" Type="Edm.String" Nullable="false" MaxLength="256" Unicode="false" FixedLength="false" />
+        <Property Name="ARTIST" Type="Edm.String" Nullable="true" MaxLength="256" Unicode="false" FixedLength="false" />
+        <Property Name="ALBUM" Type="Edm.String" Nullable="true" MaxLength="256" Unicode="false" FixedLength="false" />
+        <Property Name="GENRE" Type="Edm.String" Nullable="true" MaxLength="256" Unicode="false" FixedLength="false" />
+        <Property Name="DURATION" Type="Edm.Int64" Nullable="true" />
+        <Property Name="BITRATE" Type="Edm.Int64" Nullable="true" />
+        <Property Name="FILESIZE" Type="Edm.Int64" Nullable="true" />
+        <Property Name="COMMENTS" Type="Edm.String" Nullable="true" MaxLength="256" Unicode="false" FixedLength="false" />
+        <Property Name="ARTIST_ID" Type="Edm.Int32" Nullable="true" />
+        <Property Name="ID" Type="Edm.Int32" Nullable="false" />
+        <Property Name="UPLOADED" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="LOCATION" Type="Edm.String" Nullable="true" MaxLength="1024" Unicode="false" FixedLength="false" />
+        <Property Name="HASH" Type="Edm.Binary" Nullable="true" MaxLength="50" FixedLength="true" />
+        <Property Name="UPDATED" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="CREATED" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="RATING" Type="Edm.Int32" Nullable="true" />
+      </EntityType>
+      <EntityType Name="SongsV">
+        <Key>
+          <PropertyRef Name="TITLE" />
+          <PropertyRef Name="ID" />
+          <PropertyRef Name="UPLOADED" />
+        </Key>
+        <Property Name="TITLE" Type="Edm.String" Nullable="false" MaxLength="256" Unicode="false" FixedLength="false" />
+        <Property Name="ARTIST" Type="Edm.String" Nullable="true" MaxLength="256" Unicode="false" FixedLength="false" />
+        <Property Name="ALBUM" Type="Edm.String" Nullable="true" MaxLength="256" Unicode="false" FixedLength="false" />
+        <Property Name="GENRE" Type="Edm.String" Nullable="true" MaxLength="256" Unicode="false" FixedLength="false" />
+        <Property Name="DURATION" Type="Edm.Int64" Nullable="true" />
+        <Property Name="BITRATE" Type="Edm.Int64" Nullable="true" />
+        <Property Name="FILESIZE" Type="Edm.Int64" Nullable="true" />
+        <Property Name="COMMENTS" Type="Edm.String" Nullable="true" MaxLength="256" Unicode="false" FixedLength="false" />
+        <Property Name="ARTIST_ID" Type="Edm.Int32" Nullable="true" />
+        <Property Name="ID" Type="Edm.Int32" Nullable="false" />
+        <Property Name="UPLOADED" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="LOCATION" Type="Edm.String" Nullable="true" MaxLength="1024" Unicode="false" FixedLength="false" />
+        <Property Name="HASH" Type="Edm.Binary" Nullable="true" MaxLength="50" FixedLength="true" />
+        <Property Name="UPDATED" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="CREATED" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="RATING" Type="Edm.Int32" Nullable="true" />
+        <Property Name="newid" Type="Edm.Guid" Nullable="true" />
+      </EntityType>
+    </Schema>
+    <Schema Namespace="MvcWebRole1" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <EntityContainer Name="MusicEntities" p7:LazyLoadingEnabled="true" m:IsDefaultEntityContainer="true" xmlns:p7="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntitySet Name="ARTIST" EntityType="MusicModel.ARTIST" />
+        <EntitySet Name="SONG" EntityType="MusicModel.SONG" />
+        <EntitySet Name="MellowSongs" EntityType="MusicModel.MellowSongs" />
+        <EntitySet Name="RandomSongs" EntityType="MusicModel.RandomSongs" />
+        <EntitySet Name="RecentSongs" EntityType="MusicModel.RecentSong" />
+        <EntitySet Name="MellowSongs1" EntityType="MusicModel.MellowSongs1" />
+        <EntitySet Name="SongsV" EntityType="MusicModel.SongsV" />
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

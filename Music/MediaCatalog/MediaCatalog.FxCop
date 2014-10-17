@@ -1,0 +1,450 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FxCopProject Version="1.3" Name="Media Catalog">
+ <ProjectOptions>
+  <SharedProject>False</SharedProject>
+  <Stylesheet Apply="True">C:\Program Files\Microsoft FxCop 1.30\Xml\FxCopReport.xsl</Stylesheet>
+  <SaveMessages>
+   <Project Status="Active, Excluded" NewOnly="False" />
+   <Report Status="Active" NewOnly="False" />
+  </SaveMessages>
+  <ProjectFile Compress="True" DefaultTargetCheck="True" DefaultRuleCheck="True" SaveByRuleGroup="" Deterministic="False" />
+  <PermitAnalysis>True</PermitAnalysis>
+  <EnableControlFlowAnalysis>True</EnableControlFlowAnalysis>
+  <SourceLookup>True</SourceLookup>
+  <AnalysisExceptionsThreshold>100</AnalysisExceptionsThreshold>
+  <RuleExceptionsThreshold>10</RuleExceptionsThreshold>
+  <Spelling Locale="en-us" />
+ </ProjectOptions>
+ <Targets>
+  <AssemblyReferenceDirectories>
+   <Directory>C:\dev\wm\MusicCatalogue\bin\Debug\</Directory>
+  </AssemblyReferenceDirectories>
+  <Target Name="C:\dev\wm\MediaCatalog\bin\Debug\Microsoft.Samples.MediaCatalog.dll" Analyze="True" AnalyzeAllChildren="False">
+   <Modules AnalyzeAllChildren="False">
+    <Module Name="microsoft.samples.mediacatalog.dll" Analyze="True" AnalyzeAllChildren="False">
+     <Namespaces AnalyzeAllChildren="False">
+      <Namespace Name="Microsoft.Samples.MediaCatalog" Analyze="True" AnalyzeAllChildren="False">
+       <Classes AnalyzeAllChildren="False">
+        <Class Name="Attribute" Analyze="True" AnalyzeAllChildren="True" />
+        <Class Name="MediaDataManager" Analyze="True" AnalyzeAllChildren="True" />
+        <Class Name="MetadataEditor" Analyze="True" AnalyzeAllChildren="True" />
+        <Class Name="TrackInfoEventArgs" Analyze="True" AnalyzeAllChildren="True" />
+        <Class Name="WindowsMediaWrapper" Analyze="True" AnalyzeAllChildren="True" />
+       </Classes>
+       <Interfaces AnalyzeAllChildren="False" />
+       <Enums AnalyzeAllChildren="False">
+        <Enum Name="ComError" Analyze="True" AnalyzeAllChildren="True" />
+        <Enum Name="MediaMetadata" Analyze="True" AnalyzeAllChildren="True" />
+       </Enums>
+       <ValueTypes AnalyzeAllChildren="True" />
+      </Namespace>
+     </Namespaces>
+     <Resources AnalyzeAllChildren="True" />
+    </Module>
+   </Modules>
+  </Target>
+ </Targets>
+ <Rules>
+  <RuleFiles>
+   <RuleFile Name="$(FxCopDir)\Rules\PerformanceRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\ComRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\UsageRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\SecurityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\DesignRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\GlobalizationRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\NamingRules.dll" Enabled="True" AllRulesEnabled="True" />
+  </RuleFiles>
+  <Groups />
+  <Settings />
+ </Rules>
+ <FxCopReport Version="1.3" LastAnalysis="2004-03-29 22:31:31Z">
+  <Targets>
+   <Target Name="C:\dev\wm\MediaCatalog\bin\Debug\Microsoft.Samples.MediaCatalog.dll">
+    <Messages>
+     <Message Status="Active" Created="2004-03-26 15:30:18Z">
+      <Rule TypeName="AssembliesAreMarkedClsCompliant" />
+      <Issues>
+       <Issue Certainty="99" Level="Error">
+        <Resolution>
+         <Data>
+          <Id>AttrFalse</Id>
+          <Items>
+           <Item>Microsoft.Samples.MediaCatalog</Item>
+          </Items>
+         </Data>
+        </Resolution>
+       </Issue>
+      </Issues>
+     </Message>
+     <Message Status="Active" Created="2004-03-26 15:30:18Z">
+      <Rule TypeName="AssembliesHavePermissionRequests" />
+      <Issues>
+       <Issue Certainty="99" Level="CriticalError">
+        <Resolution>
+         <Data>
+          <Items>
+           <Item>Microsoft.Samples.MediaCatalog</Item>
+          </Items>
+         </Data>
+        </Resolution>
+       </Issue>
+      </Issues>
+     </Message>
+     <Message Status="Excluded" Created="2004-03-26 15:30:18Z">
+      <Rule TypeName="AssembliesHaveStrongNames" />
+      <Issues>
+       <Issue Certainty="95" Level="Error">
+        <Resolution>
+         <Data>
+          <Items>
+           <Item>Microsoft.Samples.MediaCatalog</Item>
+          </Items>
+         </Data>
+        </Resolution>
+       </Issue>
+      </Issues>
+      <Notes>
+       <User Name="tims">
+        <Note ID="1" />
+       </User>
+      </Notes>
+     </Message>
+    </Messages>
+    <Modules>
+     <Module Name="microsoft.samples.mediacatalog.dll">
+      <Namespaces>
+       <Namespace Name="Microsoft.Samples.MediaCatalog">
+        <Classes>
+         <Class Name="WindowsMediaWrapper">
+          <Messages>
+           <Message Status="Active" Created="2004-03-29 22:29:05Z">
+            <Rule TypeName="TypesHavingOnlyStaticMembersShouldNotHaveConstructors" />
+            <Issues>
+             <Issue Certainty="90" Level="Error">
+              <Resolution>
+               <Data>
+                <Items>
+                 <Item>WindowsMediaWrapper</Item>
+                </Items>
+               </Data>
+              </Resolution>
+             </Issue>
+            </Issues>
+           </Message>
+          </Messages>
+          <Methods>
+           <Method Name="CreateEditor(Microsoft.Samples.MediaCatalog.IWMMetadataEditor2&amp;):System.Void">
+            <Parameters>
+             <Parameter Name="0">
+              <Messages>
+               <Message Status="Active" Created="2004-03-29 22:29:05Z">
+                <Rule TypeName="AvoidOutParameters" />
+                <Issues>
+                 <Issue Certainty="50" Level="Warning">
+                  <Resolution>
+                   <Data>
+                    <Items>
+                     <Item>ppEditor</Item>
+                    </Items>
+                   </Data>
+                  </Resolution>
+                 </Issue>
+                </Issues>
+               </Message>
+              </Messages>
+             </Parameter>
+            </Parameters>
+           </Method>
+          </Methods>
+         </Class>
+         <Class Name="MetadataEditor">
+          <Messages>
+           <Message Status="Active" Created="2004-03-29 22:27:41Z">
+            <Rule TypeName="CollectionNamesHaveCollectionSuffix" />
+            <Issues>
+             <Issue Certainty="90" Level="Error">
+              <Resolution>
+               <Data>
+                <Items>
+                 <Item>MetadataEditor</Item>
+                </Items>
+               </Data>
+              </Resolution>
+             </Issue>
+            </Issues>
+           </Message>
+          </Messages>
+          <Classes>
+           <Class Name="MetadataEnumerator">
+            <Messages>
+             <Message Status="Active" Created="2004-03-29 22:27:41Z">
+              <Rule TypeName="IEnumeratorImplementationsHaveStronglyTypedMembers" />
+              <Issues>
+               <Issue Certainty="90" Level="Error">
+                <Resolution>
+                 <Data>
+                  <Items>
+                   <Item>MetadataEnumerator</Item>
+                  </Items>
+                 </Data>
+                </Resolution>
+               </Issue>
+              </Issues>
+             </Message>
+            </Messages>
+           </Class>
+          </Classes>
+         </Class>
+         <Class Name="Attribute">
+          <Messages>
+           <Message Status="Active" Created="2004-03-29 22:29:05Z">
+            <Rule TypeName="OnlyAttributeNamesHaveAttributeSuffix" />
+            <Issues>
+             <Issue Certainty="99" Level="CriticalError">
+              <Resolution>
+               <Data>
+                <Items>
+                 <Item>Attribute</Item>
+                </Items>
+               </Data>
+              </Resolution>
+             </Issue>
+            </Issues>
+           </Message>
+          </Messages>
+         </Class>
+        </Classes>
+        <Enums>
+         <Enum Name="ComError">
+          <Fields>
+           <Field Name="ASF_E_NOTFOUND">
+            <Messages>
+             <Message Status="Active" Created="2004-03-29 22:27:41Z">
+              <Rule TypeName="MemberNamesHaveOnlyShortAcronymsAllCaps" />
+              <Issues>
+               <Issue Certainty="75" Level="Error">
+                <Resolution>
+                 <Data>
+                  <Items>
+                   <Item>ASF_E_NOTFOUND</Item>
+                  </Items>
+                 </Data>
+                </Resolution>
+               </Issue>
+              </Issues>
+             </Message>
+             <Message Status="Active" Created="2004-03-29 22:27:41Z">
+              <Rule TypeName="MemberNamesDoNotHaveUnderscores" />
+              <Issues>
+               <Issue Certainty="99" Level="Error">
+                <Resolution>
+                 <Data>
+                  <Items>
+                   <Item>ASF_E_NOTFOUND</Item>
+                  </Items>
+                 </Data>
+                </Resolution>
+               </Issue>
+              </Issues>
+             </Message>
+            </Messages>
+           </Field>
+           <Field Name="NS_E_FILE_OPEN_FAILED">
+            <Messages>
+             <Message Status="Active" Created="2004-03-29 22:27:41Z">
+              <Rule TypeName="MemberNamesHaveOnlyShortAcronymsAllCaps" />
+              <Issues>
+               <Issue Certainty="75" Level="Error">
+                <Resolution>
+                 <Data>
+                  <Items>
+                   <Item>NS_E_FILE_OPEN_FAILED</Item>
+                  </Items>
+                 </Data>
+                </Resolution>
+               </Issue>
+              </Issues>
+             </Message>
+             <Message Status="Active" Created="2004-03-29 22:27:41Z">
+              <Rule TypeName="MemberNamesDoNotHaveUnderscores" />
+              <Issues>
+               <Issue Certainty="99" Level="Error">
+                <Resolution>
+                 <Data>
+                  <Items>
+                   <Item>NS_E_FILE_OPEN_FAILED</Item>
+                  </Items>
+                 </Data>
+                </Resolution>
+               </Issue>
+              </Issues>
+             </Message>
+            </Messages>
+           </Field>
+          </Fields>
+         </Enum>
+        </Enums>
+        <ValueTypes>
+         <ValueType Name="TrackInfo">
+          <Messages>
+           <Message Status="Excluded" Created="2004-03-26 15:30:18Z">
+            <Rule TypeName="ConsiderOverridingEqualsAndOperatorEqualsOnValueTypes" />
+            <Issues>
+             <Issue Certainty="75" Level="Warning">
+              <SourceCode Path="c:\dev\wm\MusicCatalogue" File="TrackInfo.cs" Line="1" />
+              <Resolution>
+               <Data>
+                <Items>
+                 <Item>TrackInfo</Item>
+                </Items>
+               </Data>
+              </Resolution>
+             </Issue>
+            </Issues>
+            <Notes>
+             <User Name="tims">
+              <Note ID="0" />
+             </User>
+            </Notes>
+           </Message>
+          </Messages>
+         </ValueType>
+        </ValueTypes>
+       </Namespace>
+      </Namespaces>
+     </Module>
+    </Modules>
+   </Target>
+  </Targets>
+  <Notes>
+   <User Name="tims">
+    <Note ID="0" Modified="2004-03-26 15:40:48Z">Variables of this type will never be compared to each other.</Note>
+    <Note ID="1" Modified="2004-03-26 15:45:01Z">This assembly will only ever be distributed in source form.</Note>
+   </User>
+  </Notes>
+  <Rules>
+   <Rule TypeName="AssembliesAreMarkedClsCompliant">
+    <Name>Assemblies are marked CLSCompliant</Name>
+    <Description>Assemblies should explicitly state their CLS compliance using the CLSCompliant attribute. An assembly without this attribute is not CLS-compliant.</Description>
+    <LongDescription>Assemblies, modules, and types can be CLS-compliant even if some parts of the assembly, module, or type are not CLS-compliant. The following rules apply: 1) If the element is marked CLSCompliant, any noncompliant members must have the CLSCompliant attribute present with its argument set to false. 2) A comparable CLS-compliant alternative member must be supplied for each member that is not CLS-compliant.</LongDescription>
+    <GroupOwner>MS FxCopDev</GroupOwner>
+    <DevOwner />
+    <Url>http://www.gotdotnet.com/team/fxcop/docs/rules/DesignRules/AssemblyClsCompliant.html</Url>
+    <Email>askfxcop@microsoft.com</Email>
+    <MessageLevel Certainty="99">Error</MessageLevel>
+    <File Name="DesignRules.dll" Version="1.30.0.0" />
+   </Rule>
+   <Rule TypeName="AssembliesHavePermissionRequests">
+    <Name>Assemblies specify permission requests</Name>
+    <Description>Permission requests prevent security exceptions from being thrown after code in an assembly has already begun executing. With permission requests, the assembly does not load if it has insufficient permissions. This rule will fire if you have specified a permission request incorrectly, or incompletely. If you have specified requests but FxCop reports a violation for this rule, use the PermView.exe tool to view the security permissions in the assembly. An unenforceable permission appears as an empty permission set.</Description>
+    <LongDescription>You should add attributes specifying what permissions your assembly will demand, might demand, and what permissions it does not want granted.  For example, the following attribute indicates that an assembly will, at minimum, require read access to the USERNAME environment variable: [assembly:EnvironmentPermissionAttribute(SecurityAction.RequestMinimum,
+Read="USERNAME")]. To specify permissions that the assembly might demand, use SecurityAction.RequestOptional. To specify permissions that the assembly must not be granted, use SecurityAction.RequestRefuse.</LongDescription>
+    <GroupOwner>MS FxCopDev</GroupOwner>
+    <DevOwner />
+    <Url>http://www.gotdotnet.com/team/fxcop/docs/rules/UsageRules/AssembliesPermissionRequests.html</Url>
+    <Email>askfxcop@microsoft.com</Email>
+    <MessageLevel Certainty="99">CriticalError</MessageLevel>
+    <File Name="UsageRules.dll" Version="1.30.0.0" />
+   </Rule>
+   <Rule TypeName="AssembliesHaveStrongNames">
+    <Name>Assemblies have strong names</Name>
+    <Description>Assemblies with strong names can be placed in the global assembly cache and can be checked for tampering at run time.</Description>
+    <LongDescription>The common language runtime compares the key in the assembly's manifest to the key used to generate the strong name, to ensure that the assembly's bits have not been tampered with.</LongDescription>
+    <GroupOwner>MS FxCopDev</GroupOwner>
+    <DevOwner />
+    <Url>http://www.gotdotnet.com/team/fxcop/docs/rules/DesignRules/AssembliesHaveStrongNames.html</Url>
+    <Email>askfxcop@microsoft.com</Email>
+    <MessageLevel Certainty="95">Error</MessageLevel>
+    <File Name="DesignRules.dll" Version="1.30.0.0" />
+   </Rule>
+   <Rule TypeName="AvoidOutParameters">
+    <Name>Avoid using out parameters</Name>
+    <Description>Using out parameters might indicate a design flaw.</Description>
+    <LongDescription>Although there are legitimate times to use out parameters, their use frequently indicates a design that does not conform to the design guidelines for managed code.</LongDescription>
+    <GroupOwner>MS FxCopDev</GroupOwner>
+    <DevOwner />
+    <Url>http://www.gotdotnet.com/team/fxcop/docs/rules/DesignRules/AvoidOutParms.html</Url>
+    <Email>askfxcop@microsoft.com</Email>
+    <MessageLevel Certainty="50">Warning</MessageLevel>
+    <File Name="DesignRules.dll" Version="1.30.0.0" />
+   </Rule>
+   <Rule TypeName="CollectionNamesHaveCollectionSuffix">
+    <Name>Collection names have the 'Collection' suffix</Name>
+    <Description>A type that extends Collection should be suffixed with 'Collection', as in StringCollection.</Description>
+    <LongDescription>If a collection is a queue, it may also be suffixed with 'Queue', or if it is a stack, it may also be suffixed with 'Stack'.  This is because these collections have semantic differences in use from other collections.</LongDescription>
+    <GroupOwner>MS FxCopDev</GroupOwner>
+    <DevOwner />
+    <Url>http://www.gotdotnet.com/team/fxcop/docs/rules/NamingRules/CollectionNamesHaveCollectionSuffix.html</Url>
+    <Email>askfxcop@microsoft.com</Email>
+    <MessageLevel Certainty="90">Error</MessageLevel>
+    <File Name="NamingRules.dll" Version="1.30.0.0" />
+   </Rule>
+   <Rule TypeName="ConsiderOverridingEqualsAndOperatorEqualsOnValueTypes">
+    <Name>Consider overriding Equals and the equality operator on value types</Name>
+    <Description>The default System.ValueType implementation might not perform as well as a custom implementation.</Description>
+    <LongDescription />
+    <GroupOwner>MS FxCopDev</GroupOwner>
+    <DevOwner />
+    <Url>http://www.gotdotnet.com/team/fxcop/docs/rules/Performance/EqualsAndOperatorEqualsOnValueTypes.html</Url>
+    <Email>askfxcop@microsoft.com</Email>
+    <MessageLevel Certainty="75">Warning</MessageLevel>
+    <File Name="PerformanceRules.dll" Version="1.30.0.0" />
+   </Rule>
+   <Rule TypeName="IEnumeratorImplementationsHaveStronglyTypedMembers">
+    <Name>IEnumerator implementations have strongly typed members</Name>
+    <Description>Types that implement IEnumerator should also provide a version of the Current property that returns a type other than Object.  Implement the interface member explicitly and make the strongly typed version public.</Description>
+    <LongDescription />
+    <GroupOwner>MS FxCopDev</GroupOwner>
+    <DevOwner />
+    <Url>http://www.gotdotnet.com/team/fxcop/docs/rules/DesignRules/IEnumeratorStronglyTyped.html</Url>
+    <Email>askfxcop@microsoft.com</Email>
+    <MessageLevel Certainty="90">Error</MessageLevel>
+    <File Name="DesignRules.dll" Version="1.30.0.0" />
+   </Rule>
+   <Rule TypeName="MemberNamesDoNotHaveUnderscores">
+    <Name>Member names do not contain underscores</Name>
+    <Description>Do not use underscores when specifying member names.</Description>
+    <LongDescription>Some generated Visual Studio identifiers for applications contain underscore characters. Underscore characters should generally be avoided in public identifiers.</LongDescription>
+    <GroupOwner>MS FxCopDev</GroupOwner>
+    <DevOwner />
+    <Url>http://www.gotdotnet.com/team/fxcop/docs/rules/NamingRules/MemberNamesDoNotHaveUnderscores.html</Url>
+    <Email>askfxcop@microsoft.com</Email>
+    <MessageLevel Certainty="99">Error</MessageLevel>
+    <File Name="NamingRules.dll" Version="1.30.0.0" />
+   </Rule>
+   <Rule TypeName="MemberNamesHaveOnlyShortAcronymsAllCaps">
+    <Name>Member name acronyms of three or more characters are Pascal-cased</Name>
+    <Description>Acronyms of three or more letters should be Pascal-cased. For example, use XmlSpace rather than XMLSpace.</Description>
+    <LongDescription>A violation of this rule might be required for compatibility with existing, non-managed symbol schemes. In general, however, these symbols should not be visible outside the assembly that uses them.</LongDescription>
+    <GroupOwner>MS FxCopDev</GroupOwner>
+    <DevOwner />
+    <Url>http://www.gotdotnet.com/team/fxcop/docs/rules/NamingRules/MemberNamesAcronymsArePascalCased.html</Url>
+    <Email>askfxcop@microsoft.com</Email>
+    <MessageLevel Certainty="75">Error</MessageLevel>
+    <File Name="NamingRules.dll" Version="1.30.0.0" />
+   </Rule>
+   <Rule TypeName="OnlyAttributeNamesHaveAttributeSuffix">
+    <Name>Only attribute names have the 'Attribute' suffix</Name>
+    <Description>Types that do not extend Attribute do not have the 'Attribute' suffix.</Description>
+    <LongDescription />
+    <GroupOwner>MS FxCopDev</GroupOwner>
+    <DevOwner />
+    <Url>http://www.gotdotnet.com/team/fxcop/docs/rules/NamingRules/OnlyAttributeNamesHaveAttributeSuffix.html</Url>
+    <Email>askfxcop@microsoft.com</Email>
+    <MessageLevel Certainty="99">CriticalError</MessageLevel>
+    <File Name="NamingRules.dll" Version="1.30.0.0" />
+   </Rule>
+   <Rule TypeName="TypesHavingOnlyStaticMembersShouldNotHaveConstructors">
+    <Name>Types with only static members should not have public or protected constructors</Name>
+    <Description>Instances of types that define only static members do not need to be created.</Description>
+    <LongDescription>Many compilers will automatically add a public default constructor if no constructor is specified.  To prevent this, adding an empty private constructor may be required.</LongDescription>
+    <GroupOwner>MS FxCopDev</GroupOwner>
+    <DevOwner />
+    <Url>http://www.gotdotnet.com/team/fxcop/docs/rules/DesignRules/StaticTypesNoCtors.html</Url>
+    <Email>askfxcop@microsoft.com</Email>
+    <MessageLevel Certainty="90">Error</MessageLevel>
+    <File Name="DesignRules.dll" Version="1.30.0.0" />
+   </Rule>
+  </Rules>
+ </FxCopReport>
+</FxCopProject>

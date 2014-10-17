@@ -1,0 +1,86 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Player</title>
+
+	<link rel="stylesheet" type="text/css" href="~/Content/themes/base/jquery.ui.all.css" />
+
+</head>
+<body>
+    <div> 
+		<div data-bind="visible: songSelected">
+			<audio id="player" controls type="audio/mp3" preload></audio>
+		</div>
+
+		<div id="divControls">
+			<span data-bind="visible: songsLoaded" id="buttonPlay" >Play</span>
+			<span id="buttonLoad">Load</span>
+		</div>
+
+		<br />
+
+		<div id="songView" data-bind="with: selectedSong" data-bind="visible: songsLoaded">
+			<table border='1' cellspacing='1' cellpadding='1'>
+				<tr><td>Title: </td><td><span data-bind="text: title"></span></td></tr>
+				<tr><td>Artist: </td><td><span data-bind="text: artist"></span></td></tr>
+				<tr><td>Album: </td><td><span data-bind="text: album"></span></td></tr>
+				<tr><td>Genre: </td><td><span data-bind="text: genre"></span></td></tr>
+				<tr><td>Rating: </td><td><span data-bind="text: rating"></span></td></tr>
+				<tr><td>Url: </td><td><span data-bind="text: url"></span></td></tr>
+			</table>
+		</div>
+
+		<table border='1' cellspacing='1' cellpadding='1' id='songTable' data-bind="visible: songsLoaded">
+			<caption>Songs</caption>
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Artist</th>
+					<th>Genre</th>
+					<th>Album</th>
+					<th>Rating</th>
+					<th>URL</th>
+				</tr>
+			</thead>
+			<tbody data-bind="foreach: songCollection">
+				<tr>
+					<td data-bind="click: $root.selectSong"><a href="#" class="songTitle" data-bind="text: title"></a></td>
+					<td><a href="#" class="artist" data-bind="text: artist"></a></td>
+					<td data-bind="text: genre"></td>
+					<td data-bind="text: album"></td>
+					<td data-bind="text: rating"></td>
+					<td data-bind="text: url"></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<br />
+		<div data-bind="visible: songsLoaded">
+			Average rating: <span id="averageRating" data-bind="text: averageRating"></span>
+		</div>
+
+		<br />
+
+		<div data-bind="visible: songSelected">
+			<div>Search:</div>
+			<label for="desiredGenre">Genre:</label>
+			<input type="text" name="desiredGenre" id="desiredGenre" data-bind="value: searchCriteriaGenre" />
+			<span id='buttonSearchSongs'>Search</span><br />
+		</div>
+
+    </div>
+
+	<script src='@Url.Content("~/Scripts/jquery-2.1.1.js")' type="text/javascript"></script>
+	<script src='@Url.Content("~/Scripts/knockout-3.1.0.debug.js")' type="text/javascript"></script>
+	<script src='@Url.Content("~/Scripts/jquery-ui-1.10.4.js")' type="text/javascript"></script>
+	<script src='@Url.Content("~/Scripts/app/app.js")' type="text/javascript"></script>
+
+</body>
+</html>

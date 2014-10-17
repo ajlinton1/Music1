@@ -1,0 +1,8 @@
+<XamlCompilerSaveState>
+  <ReferenceAssemblyList>
+    <ReferenceAssembly PathName="c:\repos\music\music\musicplayer8\packages\microsoft.data.odata.windowsstore.5.0.0\lib\.netcore\microsoft.data.edm.windowsstore.dll" HashGuid="a833feac-ed27-ec9f-17f6-758169ea4024" />
+    <ReferenceAssembly PathName="c:\repos\music\music\musicplayer8\packages\microsoft.data.odata.windowsstore.5.0.0\lib\.netcore\microsoft.data.odata.windowsstore.dll" HashGuid="f5882e3d-b8f6-cabd-a782-0530c65a0116" />
+    <ReferenceAssembly PathName="c:\repos\music\music\musicplayer8\packages\microsoft.data.services.client.windowsstore.5.0.0\lib\.netcore\microsoft.data.services.client.windowsstore.dll" HashGuid="5bfc35aa-efc6-252c-47f5-ad97ef0d0ee6" />
+    <ReferenceAssembly PathName="c:\repos\music\music\musicplayer8\packages\microsoft.data.odata.windowsstore.5.0.0\lib\.netcore\system.spatial.windowsstore.dll" HashGuid="3b406c01-c25a-aea9-c4f6-59c0f111ddc4" />
+  </ReferenceAssemblyList>
+</XamlCompilerSaveState>

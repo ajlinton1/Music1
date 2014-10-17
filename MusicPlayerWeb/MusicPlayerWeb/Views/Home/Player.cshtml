@@ -1,0 +1,178 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Player</title>
+
+    <link href='@Url.Content("~/Content/Music.css")' rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" type="text/css" href="~/Content/themes/base/jquery.ui.all.css" />
+
+</head>
+<body>
+
+    <div>
+        <audio id="player1" controls type="audio/mp3" preload></audio>
+        <span id="statusDiv">Stopped</span>
+    </div>
+
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabNowPlaying">Now Playing</a></li>
+            <li><a href="#tabQueue">Queue</a></li>
+            <li><a href="#tabHistory">History</a></li>
+            <li><a href="#tabSearch">Search</a></li>
+            <li><a href="#tabGenres">Genres</a></li>
+            <li><a href="#tabArtists">Artists</a></li>
+            <li><a href="#tabAlbums">Albums</a></li>
+            <li><a href="#tabSegments">Segments</a></li>
+        </ul>
+        <div id="tabNowPlaying">
+
+            <div id="nowPlaying">
+                <div><span class="columnLeft">Title:</span> <input type="value" id="titleSpan" class="columnRight" data-bind="value: currentTitle" /></div>
+                <div><span class="columnLeft">Artist:</span> <input type="value" id="artistSpan" class="columnRight" data-bind="value: currentArtist" /></div>
+                <div><span class="columnLeft">Album:</span> <input type="value" id="albumSpan" class="columnRight" data-bind="value: currentAlbum" /></div>
+                <div><span class="columnLeft">Genre:</span> <input type="value" id="genreSpan" class="columnRight" data-bind="value: currentGenre" /></div>
+                <div><span class="columnLeft">Location:</span> <span id="locationSpan" class="columnRight" data-bind="text: currentLocation"></span></div>
+                <div><span class="columnLeft">Id:</span> <span id="idSpan" class="columnRight" data-bind="text: currentId"></span></div>
+                <div>
+                    <span class="columnLeft">Rating:</span>
+                    <input id='ratingInput' type="number" class="columnRight" data-bind="value: currentRating" />
+                    <span id='likeLink' class='hover'>Like</span>
+                    <span id='dislikeLink' class='hover'>Dislike</span>
+                </div>
+                <span id="buttonPlay">Play</span>
+                <span id="buttonNext">Next</span>
+                <span id="buttonPrevious">Previous</span>
+                <br />
+                <span id='updateLink' class='hover'>Update</span><br />
+            </div>
+
+        </div>
+        <div id="tabQueue">
+            <table data-bind="foreach: songs" border='1' cellspacing='1' cellpadding='1' id='songTable'>
+                <tr>
+                    <td data-bind="click: songClicked"><a href="#" class="songTitle" data-bind="text: TITLE"></a></td>
+                    <td data-bind="click: artistClicked"><a href="#" class="artist" data-bind="text: ARTIST"></a></td>
+                    <td data-bind="text: GENRE"></td>
+                    <td data-bind="text: RatingView"></td>
+                    <td data-bind="text: ID"></td>
+                    <td data-bind="text: LOCATION"></td>
+                </tr>
+            </table>
+        </div>
+        <div id="tabHistory">
+            <table data-bind="foreach: playedSongs" border='1' cellspacing='1' cellpadding='1' id='playedSongTable'>
+                <tr>
+                    <td data-bind="click: songClicked"><a href="#" class="songTitle" data-bind="text: TITLE"></a></td>
+                    <td data-bind="text: ARTIST"></td>
+                    <td data-bind="text: GENRE"></td>
+                    <td data-bind="text: RatingView"></td>
+                    <td data-bind="text: ID"></td>
+                    <td data-bind="text: LOCATION"></td>
+                </tr>
+            </table>
+        </div>
+        <div id="tabSearch">
+            <div>
+                <label for="genreFilter">Genre:</label>
+                <input type="text" name="genreFilter" id="genreFilter" list="genreList" />
+                <datalist id="genreList">
+                    <label for="genreList1">Genres:</label>
+                    <select name="genreList1" id="genreList1" data-bind="foreach: genres">
+                        <option data-bind="value: name" ></option>
+                    </select>
+                </datalist>
+            </div>
+            <div>
+                <label for="sequenceFilter">Select:</label>
+                <input type="text" name="sequenceFilter" id="sequenceFilter" list="sequenceList" />
+                <datalist id="sequenceList">
+                    <label for="sequenceList1">Sequence:</label>
+                    <select name="sequenceList1" id="sequenceList1">
+                        <option value="Newest">Newest</option>
+                        <option value="Oldest">Oldest</option>
+                        <option value="Random">Random</option>
+                    </select>
+                </datalist>
+            </div>
+            <div>
+                <label for="skipFilter">Skip:</label>
+                <input type="text" name="skipFilter" id="skipFilter" list="skipList" />
+                <datalist id="skipList">
+                    <label for="skipList1">Skip:</label>
+                    <select name="skipList1" id="skipList1">
+                        <option value="0">0</option>
+                        <option value="100">100</option>
+                        <option value="200">200</option>
+                    </select>
+                </datalist>
+            </div>
+            <div>
+                <label for="desiredArtist">Artist:</label>
+                <input type="text" name="desiredArtist" id="desiredArtist" />
+                <br />
+                <label for="desiredLocation">Location:</label>
+                <input type="text" name="desiredLocation" id="desiredLocation" />
+            </div>
+            <div>
+                <span id='buttonLoadSongs'>Load</span><br />
+            </div>
+        </div>
+        <div id="tabGenres">
+            <table data-bind="foreach: genres" border='1' cellspacing='1' cellpadding='1' id='genreTable'>
+                <tr>
+                    <td data-bind="click: genreClicked"><a href="#" class="genre" data-bind="text: name"></a></td>
+                    <td><a href="#" class="genre" data-bind="text: number"></a></td>
+                </tr>
+            </table>
+        </div>
+        <div id="tabArtists">
+            <span id='buttonArtistsPrevious'>Previous</span><span id='buttonArtistsNext'>Next</span>
+            <table data-bind="foreach: artists" border='1' cellspacing='1' cellpadding='1' id='artistTable'>
+                <tr>
+                    <td data-bind="click: artistListClicked"><a href="#" class="artist" data-bind="text: name"></a></td>
+                    <td><a href="#" class="artist" data-bind="text: number"></a></td>
+                </tr>
+            </table>
+        </div>
+        <div id="tabAlbums">
+            <span id='buttonAlbumsPrevious'>Previous</span><span id='buttonAlbumsNext'>Next</span>
+            <table data-bind="foreach: albums" border='1' cellspacing='1' cellpadding='1' id='albumTable'>
+                <tr>
+                    <td data-bind="click: albumClicked"><a href="#" class="album" data-bind="text: name"></a></td>
+                </tr>
+            </table>
+        </div>
+        <div id="tabSegments">
+            <span id='buttonSegmentsPrevious'>Previous</span><span id='buttonSegmentsNext'>Next</span>
+            <table data-bind="foreach: segments" border='1' cellspacing='1' cellpadding='1' id='segmentTable'>
+                <tr>
+                    <td data-bind="click: segmentClicked"><a href="#" class="segment" data-bind="text: genre"></a></td>
+                    <td><span class="segment" data-bind="text: segmentAll"></span></td>
+                    <td><span class="segment" data-bind="text: segment0"></span></td>
+                    <td><span class="segment" data-bind="text: segment1"></span></td>
+                    <td><span class="segment" data-bind="text: segment2"></span></td>
+                    <td><span class="segment" data-bind="text: segment3"></span></td>
+                    <td><span class="segment" data-bind="text: segment4"></span></td>
+                    <td><span class="segment" data-bind="text: segment5"></span></td>
+                </tr>
+            </table>
+        </div>
+
+    <div>
+    </div>
+
+		<script src='@Url.Content("~/Scripts/jquery-2.1.1.js")' type="text/javascript"></script>
+		<script src='@Url.Content("~/Scripts/knockout-3.1.0.js")' type="text/javascript"></script>
+		@*<script src='@Url.Content("~/Scripts/knockout.mapping-latest.js")'  type="text/javascript" ></script>*@
+            <script src='@Url.Content("~/Scripts/jquery-ui-1.11.1.js")' type="text/javascript"></script>
+            <script src='@Url.Content("~/Scripts/Songs.js")' type="text/javascript"></script>
+
+</body>
+</html>
+

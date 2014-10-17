@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicPlayer1", "MusicPlayer1\MusicPlayer1.csproj", "{1A899A1C-10D7-4A9F-BB22-1D7B63054A36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicPlayer1.Tests", "MusicPlayer1.Tests\MusicPlayer1.Tests.csproj", "{CEA00B2E-0608-4CF8-8CBD-F05CF3779BC5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishScripts", "PublishScripts", "{9633B553-E4A7-448B-AC1A-16533F7C1795}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\AzureWebsitePublishModule.psm1 = PublishScripts\AzureWebsitePublishModule.psm1
+		PublishScripts\Publish-WebApplicationWebsite.ps1 = PublishScripts\Publish-WebApplicationWebsite.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configurations", "Configurations", "{4A241B83-ECA3-490D-886F-74580D8FEC5F}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Configurations\MusicPlayer1-WAWS-dev.json = PublishScripts\Configurations\MusicPlayer1-WAWS-dev.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://voidingthevoid.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = MusicPlayer1.Tests\\MusicPlayer1.Tests.csproj
+		SccProjectName1 = MusicPlayer1.Tests
+		SccLocalPath1 = MusicPlayer1.Tests
+		SccProjectUniqueName2 = MusicPlayer1\\MusicPlayer1.csproj
+		SccProjectName2 = MusicPlayer1
+		SccLocalPath2 = MusicPlayer1
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1A899A1C-10D7-4A9F-BB22-1D7B63054A36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A899A1C-10D7-4A9F-BB22-1D7B63054A36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A899A1C-10D7-4A9F-BB22-1D7B63054A36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A899A1C-10D7-4A9F-BB22-1D7B63054A36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEA00B2E-0608-4CF8-8CBD-F05CF3779BC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEA00B2E-0608-4CF8-8CBD-F05CF3779BC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEA00B2E-0608-4CF8-8CBD-F05CF3779BC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEA00B2E-0608-4CF8-8CBD-F05CF3779BC5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4A241B83-ECA3-490D-886F-74580D8FEC5F} = {9633B553-E4A7-448B-AC1A-16533F7C1795}
+	EndGlobalSection
+EndGlobal

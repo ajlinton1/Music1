@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="Music">
+</Property><Property Name="Solution File" Value="C:\Projects\Music\Music.sln">
+</Property><Property Name="Date" Value="Saturday, February 02, 2008">
+</Property><Property Name="Time" Value="17:54 PM">
+</Property><Property Name="Log Number" Value="2">
+</Property></Properties><Event ErrorLevel="0" Project="MediaCatalog" Source="MediaCatalog\MediaCatalog.csproj" Description="The project file does not require conversion.">
+</Event><Event ErrorLevel="3" Project="MediaCatalog" Source="MediaCatalog\MediaCatalog.csproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="0" Project="Music" Source="MusicDao\Music.csproj" Description="The project file does not require conversion.">
+</Event><Event ErrorLevel="3" Project="Music" Source="MusicDao\Music.csproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="0" Project="MusicTest" Source="MusicTest\MusicTest.csproj" Description="The project file does not require conversion.">
+</Event><Event ErrorLevel="3" Project="MusicTest" Source="MusicTest\MusicTest.csproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="0" Project="WMFSDKWrapper" Source="..\..\WMSDK\WMFSDK11\samples\managed\wrapper\WMFSDKWrapper.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="WMFSDKWrapper" Source="..\..\WMSDK\WMFSDK11\samples\managed\wrapper\WMFSDKWrapper.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="MetadataEdit" Source="..\..\WMSDK\WMFSDK11\samples\managed\metadataedit\MetadataEdit.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="MetadataEdit" Source="..\..\WMSDK\WMFSDK11\samples\managed\metadataedit\MetadataEdit.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="Music.sln" Description="The solution file does not require conversion.">
+</Event><Event ErrorLevel="3" Project="" Source="Music.sln" Description="No Conversion Required">
+</Event><Event ErrorLevel="0" Project="WMFSDKWrapper" Source="..\..\WMSDK\WMFSDK11\samples\managed\wrapper\WMFSDKWrapper.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="MetadataEdit" Source="..\..\WMSDK\WMFSDK11\samples\managed\metadataedit\MetadataEdit.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

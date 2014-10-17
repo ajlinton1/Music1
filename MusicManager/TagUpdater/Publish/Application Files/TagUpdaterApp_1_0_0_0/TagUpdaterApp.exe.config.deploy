@@ -1,0 +1,18 @@
+﻿<?xml version="1.0"?>
+<configuration>
+    <configSections>
+        <sectionGroup name="userSettings" type="System.Configuration.UserSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+            <section name="TagUpdater.Properties.Settings" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" allowExeDefinition="MachineToLocalUser" requirePermission="false"/>
+        </sectionGroup>
+    </configSections>
+    <userSettings>
+        <TagUpdater.Properties.Settings>
+            <setting name="ConnectionString" serializeAs="String">
+                <value>Data Source=i72e440a06.database.windows.net;Initial Catalog=Music;User Id=SqlAzure;Password=Maxsell1;</value>
+            </setting>
+            <setting name="MusicDrive" serializeAs="String">
+                <value>d</value>
+            </setting>
+        </TagUpdater.Properties.Settings>
+    </userSettings>
+<startup><supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.0"/></startup></configuration>

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Music" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="dbo.ArtistLoadRequest" Member="ArtistLoadRequests">
+    <Type Name="ArtistLoadRequest">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ArtistId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Loaded" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ARTIST" Member="ARTISTs">
+    <Type Name="ARTIST">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="COMMENTS" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+      <Column Name="RATING" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SONG_RATED" Member="SONG_RATEDs">
+    <Type Name="SONG_RATED">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SONG_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SONG" Member="SONGs">
+    <Type Name="SONG">
+      <Column Name="TITLE" Type="System.String" DbType="VarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="ARTIST" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="ALBUM" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="GENRE" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="DURATION" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="BITRATE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FILESIZE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="RATING" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="COMMENTS" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="ARTIST_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LOCATION" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UPLOADED" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="HASH" Type="System.Data.Linq.Binary" DbType="Binary(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="UPDATED" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="CREATED" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.SelectMusic" Method="SelectMusic">
+    <ElementType Name="SelectMusicResult">
+      <Column Name="TITLE" Type="System.String" DbType="VarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="ARTIST" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="GENRE" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="SONG_RATING" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SONG_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LOCATION" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+      <Column Name="ARTIST_RATING" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

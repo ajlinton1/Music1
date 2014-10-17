@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="Music">
+</Property><Property Name="Solution File" Value="D:\Projects\Music\Music.sln">
+</Property><Property Name="Date" Value="Friday, November 23, 2007">
+</Property><Property Name="Time" Value="15:09 PM">
+</Property></Properties><Event ErrorLevel="0" Project="MediaCatalog" Source="MediaCatalog\MediaCatalog.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="MediaCatalog" Source="MediaCatalog\MediaCatalog.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Music" Source="MusicDao\Music.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="Music" Source="MusicDao\Music.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="MusicTest" Source="MusicTest\MusicTest.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="MusicTest" Source="MusicTest\MusicTest.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="WMFSDKWrapper" Source="..\..\WMSDK\WMFSDK11\samples\managed\wrapper\WMFSDKWrapper.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="WMFSDKWrapper" Source="..\..\WMSDK\WMFSDK11\samples\managed\wrapper\WMFSDKWrapper.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="MetadataEdit" Source="..\..\WMSDK\WMFSDK11\samples\managed\metadataedit\MetadataEdit.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="MetadataEdit" Source="..\..\WMSDK\WMFSDK11\samples\managed\metadataedit\MetadataEdit.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="Music.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="Music.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="MediaCatalog" Source="MediaCatalog\MediaCatalog.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="Music" Source="MusicDao\Music.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="3" Project="" Source="Music.vsmdi" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="Music.vsmdi" Description="The file was converted to the current format.">
+</Event><Event ErrorLevel="3" Project="" Source="TestRunConfig1.testrunconfig" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="TestRunConfig1.testrunconfig" Description="The file was converted to the current format.">
+</Event><Event ErrorLevel="0" Project="MusicTest" Source="MusicTest\MusicTest.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="WMFSDKWrapper" Source="..\..\WMSDK\WMFSDK11\samples\managed\wrapper\WMFSDKWrapper.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="MetadataEdit" Source="..\..\WMSDK\WMFSDK11\samples\managed\metadataedit\MetadataEdit.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

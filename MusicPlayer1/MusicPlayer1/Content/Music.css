@@ -1,0 +1,65 @@
+﻿body {
+    font-family: Arial;
+}
+
+tr 
+{
+    background-color: #fff;
+}
+
+.hover 
+{
+    cursor: pointer;
+    color: Blue;
+}
+
+.searchLabel
+{
+    font-weight: bold;
+    display: block;
+    text-align:left;
+    float:left;
+    width:75px;
+    padding-right:20px;
+}
+
+.input
+{
+    display: block;
+    width: 275px;
+    float: left;
+    margin-bottom: 10px;    
+}
+
+#statusDiv
+{
+    border: 20px;
+    padding: 20px;
+}
+
+.Hidden
+{
+    visibility:hidden;
+}
+
+.Visible
+{
+    visibility:visible;
+}
+
+.columnLeft {
+    float: left;
+    width: 150px;
+}
+
+.columnRight {
+    padding-left: 10px;
+}
+
+input {
+    border: none;
+}
+
+#titleSpan {
+    width: 500px;
+}

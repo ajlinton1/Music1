@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema id="MediaData" targetNamespace="http://schemas.sneath.org/MediaData.xsd" elementFormDefault="qualified"
+	attributeFormDefault="qualified" xmlns="http://schemas.sneath.org/MediaData.xsd" xmlns:mstns="http://schemas.sneath.org/MediaData.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+	<xs:element name="MediaData" msdata:IsDataSet="true">
+		<xs:complexType>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element name="Track">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Title" type="xs:string" minOccurs="0" maxOccurs="1" />
+							<xs:element name="Author" type="xs:string" minOccurs="0" maxOccurs="1" />
+							<xs:element name="AlbumTitle" type="xs:string" minOccurs="0" maxOccurs="1" />
+							<xs:element name="AlbumArtist" type="xs:string" minOccurs="0" maxOccurs="1" />
+							<xs:element name="Publisher" type="xs:string" minOccurs="0" maxOccurs="1" />
+							<xs:element name="Genre" type="xs:string" minOccurs="0" maxOccurs="1" />
+							<xs:element name="TrackNumber" type="xs:unsignedInt" minOccurs="0" maxOccurs="1" />
+							<xs:element name="Duration" type="xs:duration" minOccurs="0" maxOccurs="1" />
+							<xs:element name="BitRate" type="xs:unsignedInt" minOccurs="0" maxOccurs="1" />
+							<xs:element name="IsProtected" type="xs:boolean" minOccurs="0" maxOccurs="1" />
+							<xs:element name="FileSize" type="xs:unsignedLong" minOccurs="0" maxOccurs="1" />
+							<xs:element name="FileName" type="xs:string" minOccurs="0" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
